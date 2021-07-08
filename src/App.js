@@ -1,24 +1,114 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  ClerkProvider,
+  RedirectToSignIn,
+  SignedIn,
+  SignedOut,
+  SignIn,
+  SignUp,
+  UserButton,
+  UserProfile,
+  useUser,
+} from '@clerk/clerk-react';
+import { 
+  BrowserRouter as Router, 
+  Link, 
+  Route, 
+  Switch, 
+  useHistory 
+} from 'react-router-dom';
+
+// Retrieve Clerk settings from the environment
+const clerkFrontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
 
 function App() {
+  console.log(clerkFrontendApi);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <ClerkProviderWithNavigate>
+        <Switch>
+          {/* Public routes, accesible whether or not a user is signed in */}
+          <Route path="/public">
+            <div>
+              Reached the public route. <Link to="/">Return home.</Link>
+            </div>
+          </Route>
+          <Route path="/sign-in/(.*)?">
+            <SignIn routing="path" path="/sign-in" />
+          </Route>
+          <Route path="/sign-up/(.*)?">
+            <SignUp routing="path" path="/sign-up" />
+          </Route>
+
+          {/* Private routes, accesible only if a user is signed in */}
+          <PrivateRoute path="/private">
+            <div>
+              Reached the private route. <Link to="/">Return home.</Link>
+            </div>
+          </PrivateRoute>
+          <PrivateRoute path="/user/(.*)?">
+            <UserProfile routing="path" path="/user" />
+          </PrivateRoute>
+
+          {/* Catch-all route will render if no other route renders */}
+          <Route>
+            <SignedIn>
+              <UserButton />
+              <Greeting />
+              <div>You are signed in. You can access both routes.</div>
+              <Navigation />
+            </SignedIn>
+            <SignedOut>
+              <div>You are signed out. You can access the public route.</div>
+              <Navigation />
+            </SignedOut>
+          </Route>
+        </Switch>
+      </ClerkProviderWithNavigate>
+    </Router>
+  );
+}
+
+function Navigation() {
+  return (
+    <ul>
+      <li>
+        <Link to="/public">Public route</Link>
+      </li>
+      <li>
+        <Link to="/private">Private route</Link>
+      </li>
+    </ul>
+  );
+}
+
+function Greeting() {
+  const { firstName } = useUser();
+  return <div>Hello, {firstName}!</div>;
+}
+
+function PrivateRoute(props) {
+  // If the route matches but the user is not signed in, redirect to /sign-in
+  return (
+    <>
+      <SignedIn>
+        <Route {...props} />
+      </SignedIn>
+      <SignedOut>
+        <RedirectToSignIn />
+      </SignedOut>
+    </>
+  );
+}
+
+function ClerkProviderWithNavigate({ children }) {
+  const { push } = useHistory();
+  return (
+    <ClerkProvider
+      frontendApi={clerkFrontendApi}
+      navigate={(to) => push(to)}
+    >
+      {children}
+    </ClerkProvider>
   );
 }
 
