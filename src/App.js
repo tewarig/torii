@@ -16,6 +16,8 @@ import {
   Switch, 
   useHistory 
 } from 'react-router-dom';
+import Navbar from './Comp/Navbar';
+import Home from './pages/Home';
 
 // Retrieve Clerk settings from the environment
 const clerkFrontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
@@ -25,12 +27,11 @@ function App() {
   return (
     <Router>
       <ClerkProviderWithNavigate>
+        <Navbar></Navbar>
         <Switch>
           {/* Public routes, accesible whether or not a user is signed in */}
           <Route path="/public">
-            <div>
-              Reached the public route. <Link to="/">Return home.</Link>
-            </div>
+            <Home></Home>
           </Route>
           <Route path="/sign-in/(.*)?">
             <SignIn routing="path" path="/sign-in" />
@@ -53,6 +54,7 @@ function App() {
           <Route>
             <SignedIn>
               <UserButton />
+              
               <Greeting />
               <div>You are signed in. You can access both routes.</div>
               <Navigation />
@@ -83,6 +85,7 @@ function Navigation() {
 
 function Greeting() {
   const { firstName } = useUser();
+  // console.log({useUser})
   return <div>Hello, {firstName}!</div>;
 }
 
