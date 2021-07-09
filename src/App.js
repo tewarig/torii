@@ -18,6 +18,7 @@ import {
 } from 'react-router-dom';
 import Navbar from './Comp/Navbar';
 import Home from './pages/Home';
+import Error from "./pages/Error";
 
 // Retrieve Clerk settings from the environment
 const clerkFrontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
@@ -30,7 +31,7 @@ function App() {
         <Navbar></Navbar>
         <Switch>
           {/* Public routes, accesible whether or not a user is signed in */}
-          <Route path="/public">
+          <Route path="/public" exact>
             <Home></Home>
           </Route>
           <Route path="/sign-in/(.*)?">
@@ -51,19 +52,13 @@ function App() {
           </PrivateRoute>
 
           {/* Catch-all route will render if no other route renders */}
-          <Route>
-            <SignedIn>
-              <UserButton />
-              
-              <Greeting />
-              <div>You are signed in. You can access both routes.</div>
-              <Navigation />
-            </SignedIn>
-            <SignedOut>
-              <div>You are signed out. You can access the public route.</div>
-              <Navigation />
-            </SignedOut>
+          <Route path="/" exact >
+           <Home></Home>
           </Route>
+          <Route path="/">
+            <Error></Error>
+          </Route>
+
         </Switch>
       </ClerkProviderWithNavigate>
     </Router>
