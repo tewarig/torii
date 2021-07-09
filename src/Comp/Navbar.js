@@ -1,14 +1,21 @@
 import React from 'react';
 import {IconButton} from "@chakra-ui/button";
-import { VStack,Flex ,Heading, Spacer , Box , Text } from "@chakra-ui/layout";
+import { VStack,Flex ,Heading, Spacer , Box , Text  , Divider} from "@chakra-ui/layout";
 import {Tooltip } from "@chakra-ui/react";
 import  { FaSun , FaMoon, FaGithub} from "react-icons/fa";
 import { useColorMode } from '@chakra-ui/color-mode';
 import {SignedIn, UserButton , useUser} from '@clerk/clerk-react';
 
+
+import MenuToggle from "./MenuToggle";
+
 function Navbar(props) {
     const {colorMode , toggleColorMode }= useColorMode();
     const isDark = colorMode === 'dark';
+    const [isOpen, setIsOpen] = React.useState(false)
+ 
+    const toggle = () => setIsOpen(!isOpen)
+  
     return (
         <>
        <VStack p={5}>
@@ -22,6 +29,14 @@ function Navbar(props) {
            <Spacer>
 
            </Spacer>
+           <MenuToggle toggle={toggle} isOpen={isOpen}></MenuToggle>
+
+           {/* <Text alignSelf="center">  Callander </Text>
+           <Text alignSelf="center"> Find a Issue</Text>
+           <Text alignSelf="center"> Project of the day </Text>
+           <Text alignSelf="center">
+            Find altenatives
+           </Text> */}
            <Tooltip label="Star! on github" >
 
            <IconButton ml={2} mr={1} icon={<FaGithub/>} isRound="true"></IconButton>
@@ -41,6 +56,8 @@ function Navbar(props) {
 
            </Flex>
        </VStack>
+       <Divider  bgGradient="linear(to-l, cyan.300 ,#d391fa)" height={1} />
+
        </>
     );
 }

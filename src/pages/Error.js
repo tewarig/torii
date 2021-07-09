@@ -9,8 +9,13 @@ import {Link} from "react-router-dom";
 function Error(props) {
     return (
         <>
-      
-        <div align="center">
+      <br/>
+      <br/>
+       <br/>
+       <br/>
+      <br/>
+       <br/>
+              <div align="center">
           <Image 
            borderRadius="full"
            boxSize="150px"         
