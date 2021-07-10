@@ -1,19 +1,18 @@
 import React from 'react';
 import ToriLogo from "../assets/iconRm.png";
-import {Text ,Image  ,Spacer, IconButton, VStack , Flex , useMediaQuery} from "@chakra-ui/react";
+import {Text ,Image  ,Spacer, IconButton, VStack , Flex , useMediaQuery , Divider} from "@chakra-ui/react";
 import Navbar from "../Comp/Navbar";
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import {Link} from "react-router-dom";
 
 
-import Cror from "../assets/jungle1.png" ;
 
 function Home(props) {
-    const [check] = useMediaQuery("(min-width: 600px)")
+    const [check] = useMediaQuery("(min-width: 1000px)")
 
     return (
         <>
-        <Flex align="center"  flexDirection={check ?  "row"  : "column"}  >
+        <Flex align="center"  flexDirection={check ?  "row"  : "column"}  background="" >
         <div alignSelf="center">
         <Text
                      align="center"
@@ -51,9 +50,11 @@ function Home(props) {
             </Text>
             </div>
             <Spacer></Spacer>
-           <Image src={Cror} height="100%" width="100%" />
+           <img src="https://inchilly.sirv.com/Images/jungle1.png" height="100%" width="100%"   lazyload="off" />
 
         </Flex>
+        <Divider  bgGradient="linear(to-l, cyan.300 ,#d391fa)" height={1} />
+
         </>
     );
 }
