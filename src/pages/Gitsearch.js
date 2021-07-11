@@ -1,5 +1,5 @@
 import React from 'react';
-import { Select , Flex , Input , Box , Text, Image ,Grid , Divider , useMediaQuery} from "@chakra-ui/react"
+import { Select , Flex , Input , Box , Text, Image ,Grid , Divider , useMediaQuery, Spacer }from "@chakra-ui/react"
 import { FcSearch} from "react-icons/fc";
 
 
@@ -9,7 +9,50 @@ function Gitsearch(props) {
     return (
         <>
         <Box >
+        <Flex align="center"  flexDirection={check ?  "row"  : "column"}  background="" >
+        <div alignSelf="center"  position="absolute" >
+        <Text
+                     align="center"
+                     ml={check ? "150" : "0"}
+                     mt={check ? "-300" : "10"}
+                     bgGradient="linear(to-l, cyan.300 ,#d391fa)"
+                     bgClip="text"
+                       fontSize="3xl"
+                       fontWeight="extrabold"
+                    //    position="absolute"
 
+            >
+               Your first Open Source Contribution made easy 
+            </Text>
+            <Text
+                     align="center"
+                     ml={check ? "150" : "0"}
+                     mt={check ? "100" : "10"}
+                     bgGradient="linear(to-l, #7928CA,#FF0080)"
+                       bgClip="text"
+                       fontSize="xl"
+                       fontWeight="extrabold"
+                    //    position="absolute"
+                       >
+                            Select a language or technology and start contributing : ) to
+            </Text>
+            <Text
+                     align="center"
+                     ml={check ? "150" : "0"}
+                     mt={check?"0":"10"}
+                     bgGradient="linear(to-l, #7928CA,#FF0080)"
+                     
+                     bgClip="text"
+                     fontSize="5xl"
+                     fontWeight="extrabold"
+                     >
+                 Open Source
+            </Text>
+            </div>
+            <Spacer></Spacer>
+           <img src="https://inchilly.sirv.com/Images/jungle-searching-1.png" height="70%" width={check?"50%":"100%"}   lazyload="off" />
+
+        </Flex>
         <Flex>
            
             <Input placeholder="🔎Search" margin="1.5%"  />
