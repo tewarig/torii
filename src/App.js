@@ -19,6 +19,7 @@ import {
 import Navbar from './Comp/Navbar';
 import Home from './pages/Home';
 import Error from "./pages/Error";
+import Gitsearch from './pages/Gitsearch';
 
 // Retrieve Clerk settings from the environment
 const clerkFrontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
@@ -34,12 +35,18 @@ function App() {
           <Route path="/public" exact>
             <Home></Home>
           </Route>
+          <Route path="/Organization" exact>
+            <Gitsearch>
+              
+            </Gitsearch>
+          </Route>
           <Route path="/sign-in/(.*)?">
             <SignIn routing="path" path="/sign-in" />
           </Route>
           <Route path="/sign-up/(.*)?">
             <SignUp routing="path" path="/sign-up" />
           </Route>
+
 
           {/* Private routes, accesible only if a user is signed in */}
           <PrivateRoute path="/private">

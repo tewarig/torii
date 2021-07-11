@@ -39,7 +39,7 @@ function Navbar(props) {
            </Text> */}
            <Tooltip label="Star! on github" >
 
-           <IconButton ml={2} mr={1} icon={<FaGithub/>} isRound="true"></IconButton>
+           <IconButton ml={2} mr={1} icon={<FaGithub/>}  isRound="true"></IconButton>
            </Tooltip>
            <Tooltip label={isDark ? "Light mode":"Dark Mode"} >
            <IconButton ml={2} mr={2} icon={ isDark ? <FaSun/> : <FaMoon/> } isRound="true" onClick={toggleColorMode}>
