@@ -1,12 +1,13 @@
 import React from 'react';
-import { Select , Flex , Input , Box , Text, Image ,Grid , Divider , useMediaQuery, Spacer ,Stack,Skeleton}from "@chakra-ui/react"
-import { FcSearch} from "react-icons/fc";
+import {  Flex , Input , Box , Text, Grid ,  useMediaQuery, Spacer }from "@chakra-ui/react"
 
 import axios from 'axios';
 
 
 import Card from "../Comp/Card";
 import Options from '../Comp/Option';
+import Skeletons from '../Comp/Skeleton';
+import { FaPlus } from 'react-icons/fa';
 
 function Gitsearch(props) {
     const [check] = useMediaQuery("(min-width: 1025px)")
@@ -72,7 +73,6 @@ function Gitsearch(props) {
             <Input placeholder="🔎Search" margin="1.5%" onChange={event => setSearchTeam(event.target.value)} />
 
             <Options  value={selectedValue} handleChange={event => setSelectedValue(event.target.value)} />
-
         </Flex>
      {data ?  
      <>
@@ -105,7 +105,7 @@ function Gitsearch(props) {
 
               
 
-                if(selectedValue==""){
+                if(selectedValue==""||selectedValue==null){
                     return value;
                 }else if((value.tags.indexOf(selectedValue)) !== -1){
                     return value;
@@ -131,24 +131,7 @@ function Gitsearch(props) {
      </>     
      :
     <>
-    <Stack padding="5%">
-
-    <Skeleton height="10px" />
-    <Skeleton height="20px" />
-    <Skeleton height="30px" />
-    <Skeleton height="10px" />
-    <Skeleton height="20px" />
-    <Skeleton height="30px" />
-    <Skeleton height="10px" />
-    <Skeleton height="20px" />
-    <Skeleton height="30px" />
-    <Skeleton height="10px" />
-    <Skeleton height="20px" />
-    <Skeleton height="30px" />
-    <Skeleton height="10px" />
-    <Skeleton height="20px" />
-
-    </Stack>
+    <Skeletons/>
     </>
      }
        

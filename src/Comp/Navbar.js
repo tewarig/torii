@@ -29,7 +29,6 @@ function Navbar(props) {
            <Spacer>
 
            </Spacer>
-           <MenuToggle toggle={toggle} isOpen={isOpen}></MenuToggle>
 
            {/* <Text alignSelf="center">  Callander </Text>
            <Text alignSelf="center"> Find a Issue</Text>
