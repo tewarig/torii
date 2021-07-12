@@ -7,7 +7,8 @@ function Card({ImgUrl ,MainText,Lang ,Des,Linki}) {
 
     return (
         <div>
-            <Link to={{pathname: {Linki}}} target="_blank">
+            <Link to={{pathname: Linki }} target="_blank">
+               
              <Box   margin="1%"  borderRadius="25px" boxShadow="2xl"  height="700px" >
                 <Image  src={ImgUrl} 
                 background={check?"white":"black"}
