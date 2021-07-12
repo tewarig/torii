@@ -3,6 +3,8 @@ import { Select , Flex , Input , Box , Text, Image ,Grid , Divider , useMediaQue
 import { FcSearch} from "react-icons/fc";
 
 
+import Card from "../Comp/Card";
+
 function Gitsearch(props) {
     const [check] = useMediaQuery("(min-width: 1025px)")
 
@@ -70,197 +72,31 @@ function Gitsearch(props) {
           ml={check?"5%":"10%"}
           mr={check?"5%":"10%"}
 
-         templateColumns={check ? "repeat(3,90fr)" : "repeat(1,80fr"}>
-            <Box   margin="1%"  borderRadius="25px" boxShadow="2xl"  >
-                <Image  src='https://github.com/krishdevdb/reseter.css/raw/master/logo.png' background="white" overflow="hidden" align="center" width="100%" height="50%" borderRadius="25px" />
-                <Text
-                fontSize="3xl"
-                fontWeight="extrabold" align="center"
-                mt="5%"
-                >
-                Reseter.css</Text>
-                <Divider/>
-                <Box margin="2%" flexDirection="row">
+         templateColumns={check ? "repeat(3,90fr)" : "repeat(1,80fr"}>    
+         <Card  
+         ImgUrl="https://github.com/krishdevdb/reseter.css/raw/master/logo.png" 
+         MainText="Reseter.css"
+         Lang={[
+            "css",
+            "sass",
+            "scss",
+            "less",
+            "stylus"
+            ]}
+          Des="Reseter.css is an awesome CSS boilerplate for a website. It is a great tool for any web designer. Reseter.css resets all the premade styles by the browser. It normalizes the browser's stylesheet for a better cross-browser experience."
+          Linki="https://github.com/krishdevdb/reseter.css"
 
-                <Text
-                 fontWeight="extrabold" 
-                 bgGradient="linear(to-l, cyan.300 ,#d391fa)"
-                 bgClip="text"
-                 align="center"
+          >
 
-                 
-                >
-                    <>
-                   || HTML ||    
-                    </>
-                    <>
-                     CSS  ||  
-                    </>
-                    <>
-                     C++  ||
-                    </>
-
-
-
-
-                </Text>
-               
-                </Box>
-                <Divider/>
-                <br/>
-                <Text
-                fontWeight="bold" align="center"
-                
-                
-                > Reseter.css is an awesome CSS boilerplate for a website. It is a great tool for any web designer. Reseter.css resets all the premade styles by the browser. It normalizes the browser\'s stylesheet for a better cross-browser experience. </Text>
-
-
-
-            </Box>
-           
-           
-           
-            <Box   margin="1%"  borderRadius="25px" boxShadow="2xl"  >
-                <Image  src='https://github.com/krishdevdb/reseter.css/raw/master/logo.png' background="white" overflow="hidden" align="center" width="100%" height="50%" borderRadius="25px" />
-                <Text
-                fontSize="3xl"
-                fontWeight="extrabold" align="center"
-                mt="5%"
-                >
-                Reseter.css</Text>
-                <Divider/>
-                <Box margin="2%" flexDirection="row">
-
-                <Text
-                 fontWeight="extrabold" 
-                 bgGradient="linear(to-l, cyan.300 ,#d391fa)"
-                 bgClip="text"
-                 align="center"
+         </Card>
 
                  
-                >
-                    <>
-                   || HTML ||    
-                    </>
-                    <>
-                     CSS  ||  
-                    </>
-                    <>
-                     C++  ||
-                    </>
-
-
-
-
-                </Text>
-               
-                </Box>
-                <Divider/>
-                <br/>
-                <Text
-                fontWeight="bold" align="center"
-                
-                
-                > Reseter.css is an awesome CSS boilerplate for a website. It is a great tool for any web designer. Reseter.css resets all the premade styles by the browser. It normalizes the browser\'s stylesheet for a better cross-browser experience. </Text>
-
-
-
-            </Box>
             
-                        <Box   margin="1%"  borderRadius="25px" boxShadow="2xl"  >
-                <Image  src='https://github.com/krishdevdb/reseter.css/raw/master/logo.png' background="white" overflow="hidden" align="center" width="100%" height="50%" borderRadius="25px" />
-                <Text
-                fontSize="3xl"
-                fontWeight="extrabold" align="center"
-                mt="5%"
-                >
-                Reseter.css</Text>
-                <Divider/>
-                <Box margin="2%" flexDirection="row">
-
-                <Text
-                 fontWeight="extrabold" 
-                 bgGradient="linear(to-l, cyan.300 ,#d391fa)"
-                 bgClip="text"
-                 align="center"
-                 
-                 
-                 >
-                    <>
-                   || HTML ||    
-                    </>
-                    <>
-                     CSS  ||  
-                    </>
-                    <>
-                     C++  ||
-                    </>
+         
 
 
 
-
-                </Text>
-               
-                </Box>
-                <Divider/>
-                <br/>
-                <Text
-                fontWeight="bold" align="center"
-                
-                
-                > Reseter.css is an awesome CSS boilerplate for a website. It is a great tool for any web designer. Reseter.css resets all the premade styles by the browser. It normalizes the browser\'s stylesheet for a better cross-browser experience. </Text>
-
-
-
-            </Box>
-            <Box   margin="1%"  borderRadius="25px" boxShadow="2xl"  >
-                <Image  src='https://github.com/krishdevdb/reseter.css/raw/master/logo.png' background="white" overflow="hidden" align="center" width="100%" height="50%" borderRadius="25px" />
-                <Text
-                fontSize="3xl"
-                fontWeight="extrabold" align="center"
-                mt="5%"
-                >
-                Reseter.css</Text>
-                <Divider/>
-                <Box margin="2%" flexDirection="row">
-
-                <Text
-                 fontWeight="extrabold" 
-                 bgGradient="linear(to-l, cyan.300 ,#d391fa)"
-                 bgClip="text"
-                 align="center"
-
-                 
-                 >
-                    <>
-                   || HTML ||    
-                    </>
-                    <>
-                     CSS  ||  
-                    </>
-                    <>
-                     C++  ||
-                    </>
-
-
-
-
-                </Text>
-               
-                </Box>
-                <Divider/>
-                <br/>
-                <Text
-                fontWeight="bold" align="center"
-                
-                
-                > Reseter.css is an awesome CSS boilerplate for a website. It is a great tool for any web designer. Reseter.css resets all the premade styles by the browser. It normalizes the browser\'s stylesheet for a better cross-browser experience. </Text>
-
-
-
-            </Box>
-                      
-           
+         
             
             
 

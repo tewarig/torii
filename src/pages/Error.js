@@ -48,7 +48,7 @@ function Error(props) {
 
           </IconButton>
           </Link>
-          <Link to={{pathname: "http://https//github.com/tewarig"}}>
+          <Link to={{pathname: "http://https//github.com/tewarig"}}  target="_blank">
           <IconButton icon={<FaGithub/>} isRound="true" ml="2">
 
           </IconButton>
