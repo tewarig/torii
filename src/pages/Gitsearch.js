@@ -2,11 +2,20 @@ import React from 'react';
 import { Select , Flex , Input , Box , Text, Image ,Grid , Divider , useMediaQuery, Spacer }from "@chakra-ui/react"
 import { FcSearch} from "react-icons/fc";
 
+import axios from 'axios';
+
 
 import Card from "../Comp/Card";
 
 function Gitsearch(props) {
     const [check] = useMediaQuery("(min-width: 1025px)")
+    const [data ,setData]  = React.useState(null);
+    const getata = async() =>{
+        var res = await axios.get('https://toriii.herokuapp.com/org')
+        setData(res.data);
+    }
+    React.useState(getata,[]);
+
 
     return (
         <>
@@ -67,40 +76,37 @@ function Gitsearch(props) {
 
 
         </Flex>
-
-        <Grid margin={check?"5%": "10%"}
+     {data ?  
+     <>
+      <Grid margin={check?"5%": "10%"}
           ml={check?"5%":"10%"}
           mr={check?"5%":"10%"}
 
-         templateColumns={check ? "repeat(3,90fr)" : "repeat(1,80fr"}>    
-         <Card  
-         ImgUrl="https://github.com/krishdevdb/reseter.css/raw/master/logo.png" 
-         MainText="Reseter.css"
-         Lang={[
-            "css",
-            "sass",
-            "scss",
-            "less",
-            "stylus"
-            ]}
-          Des="Reseter.css is an awesome CSS boilerplate for a website. It is a great tool for any web designer. Reseter.css resets all the premade styles by the browser. It normalizes the browser's stylesheet for a better cross-browser experience."
-          Linki="https://github.com/krishdevdb/reseter.css"
-
+         templateColumns={check ? "repeat(3,90fr)" : "repeat(1,80fr"}>  
+         {
+          data.map(x =>
+            
+            <Card  
+            ImgUrl={x.imageSrc} 
+            MainText={x.name}
+            Lang={x.tags}
+          Des={x.description}
+          Linki={x.projectLink}
+          
           >
 
-         </Card>
-
-                 
-            
-         
-
-
-
-         
-            
-            
-
+         </Card> 
+         )
+         } 
         </Grid>
+
+     </>     
+     :
+    <>
+    Loading....
+    </>
+     }
+       
             
      </Box>
         </>
