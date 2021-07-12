@@ -1,17 +1,18 @@
 import React from 'react';
-import {Box, Image,Text,Divider,useMediaQuery} from "@chakra-ui/react";
+import {Box, Image,Text,Divider,useMediaQuery ,useColorMode} from "@chakra-ui/react";
 import {Link} from "react-router-dom";
 
-function Card({ImgUrl ,MainText,Lang ,Des,Linki}) {
-    const [check] = useMediaQuery("(min-width: 1025px)")
+function Card({ImgUrl ,MainText,Lang ,Des,Linki,id}) {
+    const {colorMode , toggleColorMode }= useColorMode();
+    const isDark = colorMode === 'dark';
 
     return (
-        <div>
+        <div id={id}> 
             <Link to={{pathname: Linki }} target="_blank">
                
              <Box   margin="1%"  borderRadius="25px" boxShadow="2xl"  height="700px" >
                 <Image  src={ImgUrl} 
-                background={check?"white":"black"}
+                background={isDark?"black":"white"}
                 overflow="hidden" 
                 align="center" 
                 width="100%" 

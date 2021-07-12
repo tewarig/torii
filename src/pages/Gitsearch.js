@@ -1,22 +1,25 @@
 import React from 'react';
-import { Select , Flex , Input , Box , Text, Image ,Grid , Divider , useMediaQuery, Spacer }from "@chakra-ui/react"
+import { Select , Flex , Input , Box , Text, Image ,Grid , Divider , useMediaQuery, Spacer ,Stack,Skeleton}from "@chakra-ui/react"
 import { FcSearch} from "react-icons/fc";
 
 import axios from 'axios';
 
 
 import Card from "../Comp/Card";
+import Options from '../Comp/Option';
 
 function Gitsearch(props) {
     const [check] = useMediaQuery("(min-width: 1025px)")
     const [data ,setData]  = React.useState(null);
+    const [searchTerm , setSearchTeam] = React.useState("");
+    const [selectedValue, setSelectedValue] = React.useState(null);
     const getata = async() =>{
         var res = await axios.get('https://toriii.herokuapp.com/org')
         setData(res.data);
     }
     React.useState(getata,[]);
 
-
+   console.log(selectedValue);
     return (
         <>
         <Box >
@@ -65,15 +68,10 @@ function Gitsearch(props) {
 
         </Flex>
         <Flex>
-           
-            <Input placeholder="🔎Search" margin="1.5%"  />
+           {/* {searchTerm} */}
+            <Input placeholder="🔎Search" margin="1.5%" onChange={event => setSearchTeam(event.target.value)} />
 
-            <Select placeholder="Language" margin="1.5%">
-            <option value="option2">Option 2</option>
-            <option value="option1">Option 1</option>
-            <option value="option3">Option 3</option>
-          </Select>
-
+            <Options  value={selectedValue} handleChange={event => setSelectedValue(event.target.value)} />
 
         </Flex>
      {data ?  
@@ -84,7 +82,36 @@ function Gitsearch(props) {
 
          templateColumns={check ? "repeat(3,90fr)" : "repeat(1,80fr"}>  
          {
-          data.map(x =>
+          data.filter(
+              value =>{
+
+                  if(searchTerm==""){
+                      return value;
+                  }else if(value.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                      return value;
+
+                  }else{
+
+                  }
+
+                  if(selectedValue==""){
+                      return value;
+                  }else if((value.tags.indexOf(selectedValue)) !== -1){
+                      return value;
+                  }
+              }
+          ).filter(
+            value =>{
+
+              
+
+                if(selectedValue==""){
+                    return value;
+                }else if((value.tags.indexOf(selectedValue)) !== -1){
+                    return value;
+                }
+            }
+          ).map(x =>
             
             <Card  
             ImgUrl={x.imageSrc} 
@@ -92,6 +119,7 @@ function Gitsearch(props) {
             Lang={x.tags}
           Des={x.description}
           Linki={x.projectLink}
+          id={x._id}
           
           >
 
@@ -103,7 +131,24 @@ function Gitsearch(props) {
      </>     
      :
     <>
-    Loading....
+    <Stack padding="5%">
+
+    <Skeleton height="10px" />
+    <Skeleton height="20px" />
+    <Skeleton height="30px" />
+    <Skeleton height="10px" />
+    <Skeleton height="20px" />
+    <Skeleton height="30px" />
+    <Skeleton height="10px" />
+    <Skeleton height="20px" />
+    <Skeleton height="30px" />
+    <Skeleton height="10px" />
+    <Skeleton height="20px" />
+    <Skeleton height="30px" />
+    <Skeleton height="10px" />
+    <Skeleton height="20px" />
+
+    </Stack>
     </>
      }
        
