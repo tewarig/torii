@@ -20,7 +20,7 @@ function Gitsearch(props) {
     }
     React.useState(getata,[]);
 
-   console.log(selectedValue);
+//    console.log(selectedValue);
     return (
         <>
         <Box >
