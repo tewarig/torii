@@ -23,12 +23,13 @@ import Gitsearch from './pages/Gitsearch';
 import AddOrg from './pages/AddOrg';
 import AddEvent from './pages/AddEvent';
 import AddProgram from './pages/AddProgram';
+import Footer from './Comp/Footer';
 
 // Retrieve Clerk settings from the environment
 const clerkFrontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
 
 function App() {
-  console.log(clerkFrontendApi);
+  // console.log(clerkFrontendApi);
   return (
     <Router>
       <ClerkProviderWithNavigate>
@@ -80,6 +81,7 @@ function App() {
           </Route>
 
         </Switch>
+        <Footer></Footer>
       </ClerkProviderWithNavigate>
     </Router>
   );
