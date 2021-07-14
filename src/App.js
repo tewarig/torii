@@ -21,6 +21,8 @@ import Home from './pages/Home';
 import Error from "./pages/Error";
 import Gitsearch from './pages/Gitsearch';
 import AddOrg from './pages/AddOrg';
+import AddEvent from './pages/AddEvent';
+import AddProgram from './pages/AddProgram';
 
 // Retrieve Clerk settings from the environment
 const clerkFrontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
@@ -61,6 +63,12 @@ function App() {
           <PrivateRoute path="/addRepo">
             <AddOrg></AddOrg>
 
+          </PrivateRoute>
+          <PrivateRoute path="/addEvent">
+            <AddEvent></AddEvent>
+          </PrivateRoute>
+          <PrivateRoute path="/addProgram">
+            <AddProgram></AddProgram>
           </PrivateRoute>
 
           {/* Catch-all route will render if no other route renders */}

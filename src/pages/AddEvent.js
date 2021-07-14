@@ -5,7 +5,7 @@ import React from 'react';
 import { Button, Radio, RadioGroup ,Image , useMediaQuery , useColorModeValue } from "@chakra-ui/react"
 
 
-function AddOrg(props) {
+function AddEvent(props) {
     const [value, setValue] = React.useState("")
     const [url,setUrl] = React.useState("");
     const [check] = useMediaQuery("(min-width: 1025px)")
@@ -23,7 +23,7 @@ function AddOrg(props) {
     return (
        <Box backgroundImage="https://inchilly.sirv.com/Images/jungle-lines-2.png" flexDirection="row" >
 
-        <Box padding={10} align="center"  boxShadow="outline" >
+        <Box padding={10} align="center"   >
 
          <Box width={check?"70%":"100%"}  backgroundColor="#fff" background={formBackground} padding={5} borderRadius={25}>
             <Text
@@ -34,21 +34,13 @@ function AddOrg(props) {
              fontWeight="extrabold"
              
             >
-            Add Repo / Orgination for Contributors    
+            Add Event     
              </Text>
             <br/>
-           <Input placeholder="Repo / Orgination Link"   onChange={e => setUrl(e.target.value)}             
+           <Input placeholder="Event Link"   onChange={e => setUrl(e.target.value)}             
 />
               <Text margin={5} >
-                Our whole Open Source Community love to support Beginners, but someone who have just started contributing to open source would able to solve issues in this repo or orgination?
-
-              </Text>
-              <RadioGroup onChange={setValue} value={value} margin={5}>
-              <Radio value="yes" margin={5}>Yes</Radio>
-              <Radio value="2" margin={5}>No</Radio>
-              </RadioGroup>
-              <Text margin={5} >
-              Thanks for adding this link.. we would fetch all the info from the repo and add it to the repo.
+              Thanks for adding this link.. we would fetch all the info from the link and add it. 
               </Text>
              
             <Button colorScheme="pink"
@@ -56,11 +48,11 @@ function AddOrg(props) {
             
               > Submit</Button>
           </Box>
-        <Image margin={5} src="https://inchilly.sirv.com/Images/jungle-cake.png" width="30%" height="10%" />
+        <Image margin={5} src="https://inchilly.sirv.com/Images/jungle-glasses.png" width="30%" height="10%" />
         </Box>
 
        </Box>
     );
 }
 
-export default AddOrg;
+export default AddEvent;

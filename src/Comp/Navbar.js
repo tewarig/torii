@@ -5,6 +5,7 @@ import {Tooltip } from "@chakra-ui/react";
 import  { FaSun , FaMoon, FaGithub} from "react-icons/fa";
 import { useColorMode } from '@chakra-ui/color-mode';
 import {SignedIn, UserButton , useUser} from '@clerk/clerk-react';
+import {Link} from "react-router-dom";
 
 
 import MenuToggle from "./MenuToggle";
@@ -20,12 +21,14 @@ function Navbar(props) {
         <>
        <VStack p={5}>
            <Flex w="100%">
+            <Link to="/">
             <Text ml="8"  bgGradient="linear(to-l, cyan.300 ,#d391fa)" bgClip="text"
-  fontSize="3xl"
-  fontWeight="extrabold"
- >
+              fontSize="3xl"
+              fontWeight="extrabold"
+              >
                 Toriii
             </Text>
+            </Link>
            <Spacer>
 
            </Spacer>
