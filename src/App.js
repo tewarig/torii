@@ -24,6 +24,9 @@ import AddOrg from './pages/AddOrg';
 import AddEvent from './pages/AddEvent';
 import AddProgram from './pages/AddProgram';
 import Footer from './Comp/Footer';
+import OpenProgram from './pages/OpenProgram';
+import OpenSourceEvent from './pages/OpenSourceEvent';
+
 
 // Retrieve Clerk settings from the environment
 const clerkFrontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
@@ -44,6 +47,15 @@ function App() {
               
             </Gitsearch>
           </Route>
+          <Route path="/OpenProgram" exact>
+            <OpenProgram></OpenProgram>
+
+          </Route>
+          <Route path="/OpenSourceCallender">
+            <OpenSourceEvent></OpenSourceEvent>
+          </Route>
+
+
           <Route path="/sign-in/(.*)?">
             <SignIn routing="path" path="/sign-in" />
           </Route>

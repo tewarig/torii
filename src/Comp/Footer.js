@@ -3,7 +3,7 @@ import React from 'react';
 
 function Footer(props) {
     return (
-        <div>
+        <Box mt={5}>
           <Divider  bgGradient="linear(to-l, cyan.300 ,#d391fa)" height={1} />
           <Box height="10" align="center">
           <Text margin="5">
@@ -14,7 +14,7 @@ function Footer(props) {
           </Box>
 
             
-        </div>
+        </Box>
     );
 }
 
