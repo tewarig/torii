@@ -4,7 +4,7 @@ var cors = require('cors');
 
 
 
-const url = process.env.databaseUrl
+const url = 'mongodb+srv://gaurav:gaurav@cluster0.ztzjc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 const app = express() ;
 
 const port = process.env.PORT || 4000;
@@ -30,6 +30,8 @@ mongoose.connect( url,  { useFindAndModify: false   ,useNewUrlParser: true }
 const OrginationRoute = require('./routes/Org');
 app.use('/org',cors(),OrginationRoute);
 
+const EventRoute = require("./routes/Event");
+app.use("/event",cors(),EventRoute);
 
 app.listen( port ,function(){
     console.log('app is listening....');
