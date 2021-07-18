@@ -1,11 +1,24 @@
 import { Box , Text  } from '@chakra-ui/layout';
 import { Image , Button ,useColorModeValue ,Badge ,useMediaQuery} from "@chakra-ui/react";
+import {
+    Drawer,
+    DrawerBody,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerOverlay,
+    DrawerContent,
+    DrawerCloseButton,
+    useDisclosure
+  } from "@chakra-ui/react";
 import {Link} from "react-router-dom";
 import React from 'react';
 
-function EventCard({Id ,ImageUrl,TextTitle,TextDes,Linki}) {
+function ProgramCard({Id ,ImageUrl,TextTitle,TextDes,Date,Month,Linki}) {
     const  formBackground = useColorModeValue("gray.100","gray.700");
     const [check] = useMediaQuery("(min-width: 1025px)")
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const [size, setSize] = React.useState("md")
+
 
 
     return (
@@ -42,13 +55,26 @@ function EventCard({Id ,ImageUrl,TextTitle,TextDes,Linki}) {
                      
                       <Button colorScheme="pink" mt={5}  > Visit Website</Button>
                       </Link>
-
+                      <Button colorScheme="pink" m={5} 
+                      onClick={onOpen}>
+                        More Info
+                      </Button>
                   </Box>        
                    </Box>
+                   <Drawer onClose={onClose} isOpen={isOpen} size={check ? "xl" :"xs"}>
+                     <DrawerOverlay />
+                     <DrawerContent>
+                       <DrawerHeader> {TextTitle}</DrawerHeader>
+                       <DrawerBody>
+                           You're trapped 😆 , refresh the page to leave or press 'Esc' key.
+                       </DrawerBody>
+                     </DrawerContent>
+                   </Drawer>
+
 
 
        </Box>
     );
 }
 
-export default EventCard;
+export default ProgramCard;

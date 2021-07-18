@@ -18,9 +18,8 @@ function Gitsearch(props) {
         var res = await axios.get('https://toriii.herokuapp.com/org')
         setData(res.data);
     }
-    React.useState(getata,[]);
+    React.useEffect(getata,[]);
 
-//    console.log(selectedValue);
     return (
         <>
         <Box >

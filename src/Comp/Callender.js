@@ -1,7 +1,7 @@
 import React from 'react';
 import {Box ,Select,Text , useColorModeValue,useMediaQuery}  from "@chakra-ui/react";
 
-function Callender({month,changeMonth}) {
+function Callender({month,changeMonth,event}) {
     const  formBackground = useColorModeValue("white","gray.700");
     const [check] = useMediaQuery("(min-width: 1025px)")
 
@@ -17,7 +17,7 @@ function Callender({month,changeMonth}) {
                   fontWeight="extrabold"
                   ml={check ? "30%" : "0%"}
                   >
-                  Open Source Events in  
+                  Open Source {event} in  
                   </Text> 
                <Select width={check ?"10%" : "50%"} ml={check ? 5 : "25%"} mr={5} mb="3%"  value={month} onChange={changeMonth}>
                 <option value="Jan">Jan</option>

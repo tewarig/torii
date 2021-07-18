@@ -10,25 +10,25 @@ function OpenSourceEvent(props) {
     const  formBackground = useColorModeValue("gray.100","gray.700");
     const date = new Date();
     var n = date.getMonth();
-    var month = ["Jan","Feb","March","April","May","June","July","Aug","Sep","Oct","Nove","December"]
+    var month = ["Jan","Feb","March","April","May","June","July","Aug","Sep","Oct","Nov","December"]
 
     var [finalMonth,setFinalMonth] = React.useState(month[n]);
-    var [flag,setFlag] = React.useState(false);
+    var [flag,setFlag] = React.useState(true);
       
     var [Data,setData] = React.useState(null);
     const fetchData = async() => {
         const response = await axios.get('https://toriii.herokuapp.com/event');
-        const {data} = response;
-        setData(data);
+        setData(response.data);
         
     }
     React.useEffect(fetchData,[]);
+    var temp = [];
  
     return (
         <Box backgroundImage="https://inchilly.sirv.com/Images/jungle-lines-2.png">
 
         
-       <Callender month={finalMonth} changeMonth={(event)=>setFinalMonth(event.target.value)}></Callender>  
+       <Callender month={finalMonth} event="Events" changeMonth={(event)=>setFinalMonth(event.target.value)}></Callender>  
 
        {Data ?
        <>
@@ -37,7 +37,6 @@ function OpenSourceEvent(props) {
                   if(x.month == finalMonth){
                       return x;
                   }
-                //   setFlag(false);
               }
            ).map(x=>( 
               <>  
@@ -48,7 +47,7 @@ function OpenSourceEvent(props) {
             TextDes={x.description}
             Date={x.date}
             Month={x.month}
-            linki={x.eventLink}          
+            Linki={x.eventLink}          
                         
             >
 
