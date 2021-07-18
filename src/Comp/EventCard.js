@@ -1,15 +1,18 @@
 import { Box , Text  } from '@chakra-ui/layout';
-import { Image , Button ,useColorModeValue ,Badge} from "@chakra-ui/react";
+import { Image , Button ,useColorModeValue ,Badge ,useMediaQuery} from "@chakra-ui/react";
 import {Link} from "react-router-dom";
 import React from 'react';
 
-function EventCard(props) {
+function EventCard({Id ,ImageUrl,TextTitle,TextDes,Date,Month,Linki}) {
     const  formBackground = useColorModeValue("gray.100","gray.700");
+    const [check] = useMediaQuery("(min-width: 1025px)")
+
 
     return (
-       <Box  mt="1%" ml="8%"  width="80%" borderRadius={25}  padding="2%" display="flex" flexDirection="row" backgroundColor ="#fff" background={formBackground} >
-           <Image  src="https://www.open-bio.org/wp-content/themes/obf-new/img/logos/obf_logo_icon-circle-tr.png"
-                width="10%" 
+       <Box  id={Id}mt="1%" ml="8%"  width="80%" borderRadius={25}  padding="2%" display="flex" flexDirection={check ?   "row" : "column"} backgroundColor ="#fff" background={formBackground} >
+           <Image  src={ImageUrl}
+                width={check ? "10%" : "90%"} 
+                ml={check? "0%":"6%" }
                 height="50%"
                  borderRadius="25px"
             />
@@ -19,11 +22,14 @@ function EventCard(props) {
                   fontSize="3xl"
                   fontWeight="extrabold"
                    
-                  >BOSC 2021                  </Text>
+                  >
+                    {TextTitle}       
+                   </Text>
 
                   <Text>
-                  BOSC is organized by the Open Bioinformatics Foundation (OBF), a non-profit group dedicated to promoting the practice and philosophy of open source software development and open science within the biological research community.
-
+                  {
+                    TextDes
+                  }
 
                   </Text>
                   <Box display="flex"  display="flex"    flexDirection="row" >  
@@ -36,9 +42,18 @@ function EventCard(props) {
                    mr="4"
 
                    >
-                    29 June
+                     {
+                     Date
+                     }<>
+                      
+                     </>               
+                       {Month}
                    </Text>
-                      <Link  to={{pathname: 'https://www.open-bio.org/events/bosc-2021/'}} target="_blank" >
+
+
+                      <Link 
+                       to={{pathname: {Linki} }} 
+                       target="_blank" >
                      
                       <Button colorScheme="pink" mt={5}  > Visit Website</Button>
                       </Link>

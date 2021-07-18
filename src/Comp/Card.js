@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 function Card({ImgUrl ,MainText,Lang ,Des,Linki,id}) {
     const {colorMode , toggleColorMode }= useColorMode();
     const isDark = colorMode === 'dark';
+    
 
     return (
         <div id={id}> 
