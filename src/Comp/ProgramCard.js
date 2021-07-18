@@ -1,5 +1,7 @@
 import { Box , Text  } from '@chakra-ui/layout';
-import { Image , Button ,useColorModeValue ,Badge ,useMediaQuery} from "@chakra-ui/react";
+import { Image , Button ,useColorModeValue ,Badge ,useMediaQuery } from "@chakra-ui/react";
+import { AspectRatio } from "@chakra-ui/react"
+
 import {
     Drawer,
     DrawerBody,
@@ -64,9 +66,76 @@ function ProgramCard({Id ,ImageUrl,TextTitle,TextDes,Date,Month,Linki}) {
                    <Drawer onClose={onClose} isOpen={isOpen} size={check ? "xl" :"xs"}>
                      <DrawerOverlay />
                      <DrawerContent>
-                       <DrawerHeader> {TextTitle}</DrawerHeader>
+                       <DrawerHeader align="center"> 
+                         <Image  src={ImageUrl}
+                              ml={"36%"}
+                               width="25%"                                
+                               height="70%"
+                                borderRadius="25px"
+                           />
+                           <Text
+                           margin="1%"
+                           fontWeight="extraBold"
+                           fontSize="3xl"
+                           >
+
+                           {TextTitle}
+                           </Text>
+                           </DrawerHeader>
                        <DrawerBody>
-                           You're trapped 😆 , refresh the page to leave or press 'Esc' key.
+                       <Text
+                        
+                       >
+                        {
+                          TextDes
+                        }
+
+      
+                        </Text>
+                        <Box>
+                            <Button margin="4%">
+
+                            <Text>
+                            📜 Blog
+                            </Text>
+                            </Button>
+                            <Text>
+
+                            </Text>
+                        </Box>
+                        <Box>
+                            <Button margin="4%">
+
+                            <Text> 🎥 Youtube Video</Text>
+                            </Button>
+                            <AspectRatio width="70%" height="300px" align="center" ratio={1} margin="4%">
+                              <iframe
+                                title="naruto"
+                                src="https://www.youtube.com/embed/goqqohUitmw"
+                                allowFullScreen
+                              />
+                            </AspectRatio>
+
+                            <Text>
+
+                            </Text>
+                        </Box>
+                        <Box>
+                            <Button margin="5%">
+
+                            <Text> 🎥 Offical Resources</Text>
+
+                            </Button>
+                            <Text>
+                                <Link to={{pathname: Linki}} target="_blank" >
+                                    <Button rgin="3%" colorScheme="green" margin="5%">
+
+                                    {Linki.slice(8)}
+                                    </Button >
+                                </Link>
+
+                            </Text>
+                        </Box>
                        </DrawerBody>
                      </DrawerContent>
                    </Drawer>
