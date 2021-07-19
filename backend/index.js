@@ -33,6 +33,9 @@ app.use('/org',cors(),OrginationRoute);
 const EventRoute = require("./routes/Event");
 app.use("/event",cors(),EventRoute);
 
+const ProgramRoute = require("./routes/Program");
+app.use("/program",cors(), ProgramRoute) ; 
+
 app.listen( port ,function(){
     console.log('app is listening....');
 })
