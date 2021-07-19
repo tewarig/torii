@@ -35,7 +35,14 @@ function OpenProgram(props) {
         {data ?
             <>
             {
-                data.map(x=>(
+                data.filter(
+                     x=>{
+                        if(x.month == finalMonth){
+                          return x;
+                        }
+                     }
+                    
+                ).map(x=>(
                     <ProgramCard
                     id={x.id}
                     ImageUrl={x.imageSrc}
