@@ -1,6 +1,7 @@
 import React from 'react';
 import Callender from '../Comp/Callender';
 import ProgramCard from '../Comp/ProgramCard';
+import axios from 'axios';
 
 
 function OpenProgram(props) {
@@ -9,6 +10,16 @@ function OpenProgram(props) {
     var month = ["Jan","Feb","March","April","May","June","July","Aug","Sep","Oct","Nov","December"]
 
     var [finalMonth,setFinalMonth] = React.useState(month[n]);
+    const [data,setData] = React.useState(null);
+    const getData = async() => {
+        const response = await axios.get('https://toriii.herokuapp.com/Program');
+        const meow  = response.data;
+        console.log(meow);
+        setData(meow);
+    }
+        React.useEffect(getData,[]);
+
+
 
 
     return (
@@ -21,19 +32,29 @@ function OpenProgram(props) {
               >
 
               </Callender>
-
-            <ProgramCard
-             id="kj4r43kbfekb4"
-             ImageUrl="https://www.open-bio.org/wp-content/themes/obf-new/img/logos/obf_logo_icon-circle-tr.png"
-             TextTitle="kuch bhi"
-             TextDes="diodvdbofvbdfuvbdovbovurdvbdvd fosdov svisvdfvdfvov sovdfvndfvndoxlin o oivodfvnodflinvdfliv dffvldfnvdlfvndl "
-             Linki="https://google.com"         
-            
-            
-
-            >
-
-            </ProgramCard>
+        {data ?
+            <>
+            {
+                data.map(x=>(
+                    <ProgramCard
+                    id={x.id}
+                    ImageUrl={x.imageSrc}
+                    TextTitle={x.name}
+                    TextDes={x.description}
+                    Linki={x.eventLink}  
+                    Youtube={x.youtube}  
+                    Blog={x.blog}    
+                                      
+       
+                   />
+                ))
+            }
+            </>
+         :
+            <>
+            loading
+            </>
+        }
               
             
         </div>

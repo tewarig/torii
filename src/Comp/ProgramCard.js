@@ -14,13 +14,13 @@ import {
   } from "@chakra-ui/react";
 import {Link} from "react-router-dom";
 import React from 'react';
+import axios from 'axios';
 
-function ProgramCard({Id ,ImageUrl,TextTitle,TextDes,Date,Month,Linki}) {
+function ProgramCard({Id ,ImageUrl,TextTitle,TextDes,Date,Month,Youtube,Linki,Blog}) {
     const  formBackground = useColorModeValue("gray.100","gray.700");
     const [check] = useMediaQuery("(min-width: 1025px)")
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [size, setSize] = React.useState("md")
-
 
 
     return (
@@ -93,35 +93,68 @@ function ProgramCard({Id ,ImageUrl,TextTitle,TextDes,Date,Month,Linki}) {
       
                         </Text>
                         <Box>
-                            <Button margin="4%">
+                            <Button margin="4%" colorScheme="pink">
 
                             <Text>
                             📜 Blog
                             </Text>
-                            </Button>
-                            <Text>
+ 
+                           
+                            </Button> 
+                            {
+                              Blog.map(
+                                x=>(
+                                  <>
+                                  {
+                                    <>
+                                    <br/>
+                                    <Link to={{pathname: x.link}} target="_blank">
 
+                                      <Button margin="1%" ml="4%">
+
+                                      {x.name}
+                                      </Button>
+
+                                    </Link>
+                                    </>
+
+                                  }
+                                  </>
+                                )
+                              )
+                            }       
+                             <Text margin="4%">
+                              
                             </Text>
                         </Box>
                         <Box>
-                            <Button margin="4%">
+                            <Button margin="4%" colorScheme="pink">
 
                             <Text> 🎥 Youtube Video</Text>
                             </Button>
-                            <AspectRatio width="70%" height="300px" align="center" ratio={1} margin="4%">
+                            {
+                                Youtube.map(
+                                    x =>(
+                          <AspectRatio width="70%" height="300px" align="center" ratio={1} margin="4%">
                               <iframe
                                 title="naruto"
-                                src="https://www.youtube.com/embed/goqqohUitmw"
+                                src={x}
                                 allowFullScreen
                               />
                             </AspectRatio>
+                                    )
+                                )
+                            }
+                           
+                            
+                            
 
                             <Text>
 
                             </Text>
                         </Box>
                         <Box>
-                            <Button margin="5%">
+                            <Button margin="5%" colorScheme="pink">
 
                             <Text> 🎥 Offical Resources</Text>
 
