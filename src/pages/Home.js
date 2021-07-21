@@ -58,7 +58,7 @@ function Home(props) {
         </Flex>
         <Divider  bgGradient="linear(to-l, cyan.300 ,#d391fa)" height={1} />
         <Flex  flexDirection={check ? "column" : "column"}>
-
+        <Link to="/OrganizationSearch">
         <Box
           w={check ? "90%" : "90%"}
           margin="5%"
@@ -90,6 +90,8 @@ function Home(props) {
             </Flex>
 
         </Box>
+        </Link>
+         
        <Flex flexDirection={check?"row":"column"}>
         <Box
          bgGradient="linear(to-r,red.100 0%, orange.100 25%, yellow.100 50%)"
@@ -98,6 +100,7 @@ function Home(props) {
           w={check ? "40%" : "90%"}
           margin="5%"
           >
+       <Link to="/OpenProgram">
                       <Flex align="center"  flexDirection={check ?  "row"  : "column-reverse"}  background="" >
 
              <div alignSelf="center">
@@ -127,6 +130,7 @@ function Home(props) {
             </Flex>
 
 
+        </Link>
         </Box>
         <Box
           bgGradient="linear(to-r, #7BE0AD,#AEE5D8)"
@@ -134,6 +138,10 @@ function Home(props) {
           w={check ? "40%" : "90%"}
           margin="5%"
           >
+           <Link to="/OpenSourceEvents">
+
+
+            
                       <Flex align="center"  flexDirection={check ?  "row"  : "column"}  background="" >
 
              <div alignSelf="center">
@@ -161,6 +169,7 @@ function Home(props) {
                 </div>
     
             </Flex>
+            </Link>
 
 
         </Box>

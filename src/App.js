@@ -42,7 +42,7 @@ function App() {
           <Route path="/public" exact>
             <Home></Home>
           </Route>
-          <Route path="/Organization" exact>
+          <Route path="/OrganizationSearch" exact>
             <Gitsearch>
               
             </Gitsearch>
@@ -51,7 +51,7 @@ function App() {
             <OpenProgram></OpenProgram>
 
           </Route>
-          <Route path="/OpenSourceCallender">
+          <Route path="/OpenSourceEvents">
             <OpenSourceEvent></OpenSourceEvent>
           </Route>
 
