@@ -6,12 +6,37 @@ import { Input } from '@chakra-ui/input';
 import Navbar from "../Comp/Navbar";
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import {Link} from "react-router-dom";
+import toast ,{Toaster} from "react-hot-toast";
+
 
 import { FcBinoculars} from "react-icons/fc";
+import axios from 'axios';
 
 
 function Home(props) {
     const [check] = useMediaQuery("(min-width: 1025px)")
+    const [email,setEmail] = React.useState("");
+
+
+    const sendEmail = (emailAdress) =>{
+      if(new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(emailAdress)){
+        axios({
+          method:'post',
+          url:"https://toriii.herokuapp.com/email",
+          data:{
+            email:email
+          }
+
+        })
+         toast.success("email added 😉");
+         toast("make sure you star🌟 this project on github");
+
+      }else{
+        toast.error("that's not a valid email! senapi🥺");
+
+      }
+
+    }
 
     return (
         <>
@@ -193,9 +218,10 @@ function Home(props) {
               </Text>
              </Flex>
                <Flex flexDirection="row" mt="5%">
-
-               <Input placeholder="email" ml="4%" width="100%" />
-               <Button colorScheme="pink" margin={check?"0%":"0"}  ml="2%" mr="4%"> Subscribe </Button>
+             <h1>
+               </h1> 
+               <Input placeholder="email" ml="4%" width="100%"  type="email" value={email}  onChange={(e)=>(setEmail(e.target.value))}/>
+               <Button colorScheme="pink" margin={check?"0%":"0"}  ml="2%" mr="4%" onClick={() => (sendEmail(email))}> Subscribe </Button>
                </Flex>
 
                {/* <Flex flexDirection="row" ml="6%" mt="1%">
@@ -207,6 +233,7 @@ function Home(props) {
            </Box>
          </Flex>
         </Flex>
+        <Toaster/>
         </>
     );
 }
