@@ -1,6 +1,8 @@
 import React from 'react';
 import ToriLogo from "../assets/iconRm.png";
-import {Text ,Image  ,Spacer, IconButton, VStack , Flex , useMediaQuery , Divider , Grid , GridItem , Box} from "@chakra-ui/react";
+import {Text ,Image  ,Spacer, IconButton, VStack , Flex , useMediaQuery , Divider , Grid , GridItem , Box, Button, Checkbox } from "@chakra-ui/react";
+import { Input } from '@chakra-ui/input';
+
 import Navbar from "../Comp/Navbar";
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import {Link} from "react-router-dom";
@@ -55,50 +57,147 @@ function Home(props) {
 
         </Flex>
         <Divider  bgGradient="linear(to-l, cyan.300 ,#d391fa)" height={1} />
-        <Flex  flexDirection={check ? "row" : "column"}>
+        <Flex  flexDirection={check ? "column" : "column"}>
 
         <Box
-          w={check ? "25%" : "90%"}
+          w={check ? "90%" : "90%"}
           margin="5%"
-          h="300px"
           bgGradient="linear(to-r,  #008793, #00bf72, #a8eb12)"
           borderRadius={25}
-          >
-        <div align="center"  >
+          flexDirection="row"
+          > 
 
-        <IconButton  isRound="true"  icon={<FcBinoculars size="large"/>}  mt="5%" width="30%" height="30%">
-       
-       
-        </IconButton>
-        <Text 
-          fontSize="3xl"
-          mt="5%"
-       >
-            Search Issues on Github
-        </Text>
-        </div>
+          <Flex align="center"  flexDirection={check ?  "row"  : "column"}  background="" >
+             <div alignSelf="center">
+            <Text
+                         align="center"
+                         ml={check ? "1" : "0"}
+                         mt={check ? "0" : "5%"}
+                         bgGradient="linear(to-l, #000 ,#333)"
+                         bgClip="text"
+                           fontSize={check?"6xl":"xl"}
+                           fontWeight="extrabold"
+    
+                >
+                     Search  and find  a origination you would love to contriubute 
+                </Text>
+              
+               
+                </div>
+                <Spacer></Spacer>
+               <img src="https://inchilly.sirv.com/Images/jungle-searching-1%20(1).png" height="70%" width="80%"   lazyload="off" />
+    
+            </Flex>
+
+        </Box>
+       <Flex flexDirection={check?"row":"column"}>
+        <Box
+         bgGradient="linear(to-r,red.100 0%, orange.100 25%, yellow.100 50%)"
+
+          borderRadius={25}
+          w={check ? "40%" : "90%"}
+          margin="5%"
+          >
+                      <Flex align="center"  flexDirection={check ?  "row"  : "column-reverse"}  background="" >
+
+             <div alignSelf="center">
+            <Text
+                         align="center"
+                         ml={check ? "1" : "0"}
+                         mt={check ? "5" : "5%"}
+                         mr={check?"5":"0"}
+                         mb={check?"0":"5%"}
+                         bgGradient="linear(to-l, #000 ,#333)"
+                         bgClip="text"
+                           fontSize={check?"6xl":"xl"}
+
+                           fontWeight="extrabold"
+    
+                >
+                  Find all the Open Source events happing this month and Attend what you like
+                </Text>
+                <div mb="5%"> 
+
+          <img src="https://inchilly.sirv.com/jungle-coming-soon-2.png" height="50%" width="100%"   lazyload="off" />
+                </div>
+              
+               
+                </div>
+    
+            </Flex>
+
+
         </Box>
         <Box
-          h="300px"
-          bgGradient="linear(red.100 0%, orange.100 25%, yellow.100 50%)"
+          bgGradient="linear(to-r, #7BE0AD,#AEE5D8)"
           borderRadius={25}
-          w={check ? "25%" : "90%"}
-          margin="5%"
-          alignContent="center"
-          >
-             
-
-        </Box>
-        <Box
-          h="300px"
-          bgGradient="linear(to-r, #0052d4, #4364f7 , #6fb1fc)"
-          borderRadius={25}
-          w={check ? "25%" : "90%"}
+          w={check ? "40%" : "90%"}
           margin="5%"
           >
+                      <Flex align="center"  flexDirection={check ?  "row"  : "column"}  background="" >
+
+             <div alignSelf="center">
+            <Text
+                         align="center"
+                         ml={check ? "1" : "0"}
+                         mt={check ? "5" : "5%"}
+                         mr={check?"5":"0"}
+                         mb={check?"0":"5%"}
+                         bgGradient="linear(to-l, #000 ,#333)"
+                         bgClip="text"
+                           fontSize={check?"6xl":"xl"}
+
+                           fontWeight="extrabold"
+    
+                >
+                 Get a detailed list of all open source program happing out there
+                </Text>
+                <div mb="5%"> 
+
+          <img src="https://inchilly.sirv.com/Images/jungle-remote-working-3.png" height="50%" width="100%"   lazyload="off" />
+                </div>
+              
+               
+                </div>
+    
+            </Flex>
+
 
         </Box>
+        </Flex>
+        <Divider  bgGradient="linear(to-l, cyan.300 ,#d391fa)" height={1} />
+         <Flex flexDirection={check?"row":"column"}>
+         <img src="https://inchilly.sirv.com/Images/jungle-upgrade-2%20(1).png" height="50%" width={check ?"40%":"100%"}   lazyload="off" />
+          
+           <Box textAlign="center">
+             <Box mt={check?"20%":"0%"} ml={check?"15%":"0%"}> 
+             <Flex direction="column">
+              <Text
+              bgGradient="linear(to-l, #000 ,#333)"
+              bgClip="text"
+              fontSize="xl"
+              mr={check ?"10%" : "0%"}
+
+               > Subscribe to our news letter and get a list of events and programs happening each month  delivered to you</Text>
+              <Text mt="5%">
+                Spam...? we don't do that here.
+              </Text>
+             </Flex>
+               <Flex flexDirection="row" mt="5%">
+
+               <Input placeholder="email" ml="4%" width="100%" />
+               <Button colorScheme="pink" margin={check?"0%":"0"}  ml="2%" mr="4%"> Subscribe </Button>
+               </Flex>
+
+               {/* <Flex flexDirection="row" ml="6%" mt="1%">
+
+                <Checkbox></Checkbox>
+                <Text ml="2%"> Yes, i am a robot 🤖 </Text>
+                </Flex> */}
+             </Box>
+           </Box>
          </Flex>
+        </Flex>
         </>
     );
 }
