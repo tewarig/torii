@@ -3,6 +3,11 @@ import { Input } from '@chakra-ui/input';
 import { Box ,Text} from '@chakra-ui/layout';
 import React from 'react';
 import { Button, Radio, RadioGroup ,Image , useMediaQuery , useColorModeValue } from "@chakra-ui/react"
+import toast ,{Toaster} from "react-hot-toast";
+import axios from 'axios';
+
+
+
 
 
 function AddOrg(props) {
@@ -17,6 +22,24 @@ function AddOrg(props) {
      setUrl(event.target.value)
     }
     const addThis = () =>{
+      if(url === ""){
+        toast.error("The url can't be empty 😅")
+        return;
+      }
+      try{
+      axios({
+      method:'post',
+      url: 'https://toriii.herokuapp.com/data',
+      data:{
+        data:url,
+      }
+      })
+      setUrl("");
+         toast.success('Event have been send for review 😉');
+       }catch(error){
+         toast.error(error);
+       }
+
 
     }
 
@@ -37,7 +60,7 @@ function AddOrg(props) {
             Add Repo / Orgination for Contributors    
              </Text>
             <br/>
-           <Input placeholder="Repo / Orgination Link"   onChange={e => setUrl(e.target.value)}             
+           <Input placeholder="Repo / Orgination Link"  value={url} onChange={e => setUrl(e.target.value)}             
 />
               <Text margin={5} >
                 Our whole Open Source Community love to support Beginners, but someone who have just started contributing to open source would able to solve issues in this repo or orgination?
@@ -58,6 +81,8 @@ function AddOrg(props) {
           </Box>
         <Image margin={5} src="https://inchilly.sirv.com/Images/jungle-cake.png" width="30%" height="10%" />
         </Box>
+        <Toaster/>
+
 
        </Box>
     );

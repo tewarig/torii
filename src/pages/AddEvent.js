@@ -3,7 +3,8 @@ import { Input } from '@chakra-ui/input';
 import { Box ,Text} from '@chakra-ui/layout';
 import React from 'react';
 import { Button, Radio, RadioGroup ,Image , useMediaQuery , useColorModeValue } from "@chakra-ui/react"
-
+import toast ,{Toaster} from "react-hot-toast";
+import axios from 'axios';
 
 function AddEvent(props) {
     const [value, setValue] = React.useState("")
@@ -17,6 +18,23 @@ function AddEvent(props) {
      setUrl(event.target.value)
     }
     const addThis = () =>{
+      if(url === ""){
+        toast.error("The url can't be empty 😅")
+        return;
+      }
+      try{
+      axios({
+      method:'post',
+      url: 'https://toriii.herokuapp.com/data',
+      data:{
+        data:url,
+      }
+      })
+      setUrl("");
+         toast.success('Event have been send for review 😉');
+       }catch(error){
+         toast.error(error);
+       }
 
     }
 
@@ -37,7 +55,7 @@ function AddEvent(props) {
             Add Event     
              </Text>
             <br/>
-           <Input placeholder="Event Link"   onChange={e => setUrl(e.target.value)}             
+           <Input placeholder="Event Link"   onChange={e => setUrl(e.target.value)}   value={url}          
 />
               <Text margin={5} >
               Thanks for adding this link.. we would fetch all the info from the link and add it. 
@@ -50,6 +68,8 @@ function AddEvent(props) {
           </Box>
         <Image margin={5} src="https://inchilly.sirv.com/Images/jungle-glasses.png" width="30%" height="10%" />
         </Box>
+        <Toaster/>
+
 
        </Box>
     );

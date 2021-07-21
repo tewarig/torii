@@ -2,7 +2,7 @@ import React from 'react';
 import Callender from '../Comp/Callender';
 import ProgramCard from '../Comp/ProgramCard';
 import axios from 'axios';
-
+import Skeletons from '../Comp/Skeleton';
 
 function OpenProgram(props) {
     const date = new Date();
@@ -59,7 +59,7 @@ function OpenProgram(props) {
             </>
          :
             <>
-            loading
+            <Skeletons></Skeletons>
             </>
         }
               

@@ -66,12 +66,7 @@ function OpenSourceEvent(props) {
            <Skeletons></Skeletons>
            </>
        }
-       {
-           flag && 
-           <>
-           opps! nothing found
-           </>
-       }
+       
 
        
         </Box>
