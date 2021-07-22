@@ -1,12 +1,13 @@
 import React from 'react';
 import {Button, IconButton} from "@chakra-ui/button";
 import { VStack,Flex ,Heading, Spacer , Box , Text  , Divider} from "@chakra-ui/layout";
+import {useMediaQuery} from "@chakra-ui/react";
 import {Tooltip } from "@chakra-ui/react";
-import  { FaSun , FaMoon, FaGithub} from "react-icons/fa";
+import  { FaSun , FaMoon, FaGithub, FaUser} from "react-icons/fa";
 import { FcList, FcSearch } from "react-icons/fc";
 import {BsSearch ,BsCalendarFill, BsPeopleFill, BsPerson, BsFillExclamationCircleFill, BsStar } from "react-icons/bs";
 import { useColorMode } from '@chakra-ui/color-mode';
-import {SignedIn, UserButton , useUser} from '@clerk/clerk-react';
+import {SignedIn, UserButton , useUser ,SignedOut} from '@clerk/clerk-react';
 import {Link} from "react-router-dom";
 
 import {
@@ -27,6 +28,18 @@ function Navbar(props) {
     const isDark = colorMode === 'dark';
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [size, setSize] = React.useState("md")
+    const [check] = useMediaQuery("(min-width: 1025px)")
+    const [meow ,setMeow] = React.useState(false);
+    let flag = false;
+    var setFlag  = () =>{
+      setMeow(!meow);
+      onClose();
+    }
+    var callFlag = () =>{
+      setMeow(!meow)
+      onOpen()
+    }
+
 
  
     // const toggle = () => setIsOpen(!isOpen)
@@ -56,31 +69,36 @@ function Navbar(props) {
            <Tooltip label="Menu">
             <IconButton onClick={onOpen} ml={2} mr={1} icon={<FcList />} isRound="true"></IconButton>
            </Tooltip>
+           {check &&
            <Tooltip label="Star! on github" >
 
            <IconButton ml={2} mr={1} icon={<FaGithub/>}  isRound="true"></IconButton>
            </Tooltip>
+           }
+           { check &&
            <Tooltip label={isDark ? "Light mode":"Dark Mode"} >
-           <IconButton ml={2} mr={2} icon={ isDark ? <FaSun color="yellow"/> : <FaMoon color="#59e5f7"/> } isRound="true" onClick={toggleColorMode}>
+           <IconButton ml={2} mr={1} icon={ isDark ? <FaSun color="yellow"/> : <FaMoon color="#59e5f7"/> } isRound="true" onClick={toggleColorMode}>
            </IconButton>
            </Tooltip>
+            }
            <Tooltip  label="Manage Profile">
-
-           <Box ml={5} mr={1}>
-           <SignedIn>          
-          <UserButton bg="tomato" />
-           </SignedIn>
-           {
-               !SignedIn && <h1> heeeeeeeeee</h1>
-           }
-          
-           </Box>
+             <Box ml={5} mr={1}>
+            <SignedIn>          
+              <UserButton bg="tomato" />
+               </SignedIn>
+             </Box>
            </Tooltip>
+            <SignedOut>
+               <Tooltip label="Sign in / SignOut "> 
+                 <IconButton icon={<FaUser/>} isRound="true"  onClick={callFlag}>
+                 </IconButton>
+               </Tooltip>
+           </SignedOut>
 
            </Flex>
        </VStack>
        <Divider  bgGradient="linear(to-l, cyan.300 ,#d391fa)" height={1} />
-       <Drawer onClose={onClose} isOpen={isOpen} size={"xs"}>
+       <Drawer onClose={meow ? setFlag : onClose } isOpen={isOpen} size={"xs"}>
                      <DrawerOverlay />
                      <DrawerContent>
                        <DrawerHeader align="center"> 
@@ -93,10 +111,41 @@ function Navbar(props) {
                       </Text>
                            </DrawerHeader>
                        <DrawerBody>
+                        {meow ?
+                        <>
+                        <Box>
+
+                          <Button ml="1%" mt="5%" width="100%">
+
+                              
+                             <Text fontSize="xl" ml="4">
+                             Login
+                             </Text>
+                             </Button>
+                             <Button ml="1%" mt="5%" width="100%">
+
+                              
+                             <Text fontSize="xl" ml="4">
+                             SignUp
+                             </Text>
+                             </Button>
+                        </Box>
+                        
+                        </> 
+                        :
                            <Box>
+                          {!check &&
+                          <Button ml="1%" mt="5%" width="100%" onClick={toggleColorMode} >
+                        {isDark ? <FaSun color="yellow"/> : <FaMoon color="#59e5f7"/> }  
+   
+                             <Text fontSize="xl" ml="4%">
+                             {isDark ?  "Light Mode" : "Dark Mode"}
+                             </Text>
+                          </Button>
+                          }
                            
                            <Link to="/OrganizationSearch" onClick={onClose}>
-                            <Button ml="5%" width="100%">
+                            <Button ml="1%" mt="5%" width="100%">
 
                                   <BsSearch/> 
                                 <Text fontSize="xl" ml="4">
@@ -105,7 +154,7 @@ function Navbar(props) {
                             </Button>
                            </Link>
                            <Link to="/OpenSourceEvents" onClick={onClose}>
-                            <Button ml="5%" mt="5%" width="100%">
+                            <Button ml="1%" mt="5%" width="100%">
                                 <BsCalendarFill/>
 
                                 <Text fontSize="xl" ml="4">
@@ -114,7 +163,7 @@ function Navbar(props) {
                             </Button>
                            </Link>
                            <Link to="/OpenProgram" onClick={onClose}>
-                            <Button ml="5%" mt="5%" width="100%">
+                            <Button ml="1%" mt="5%" width="100%">
                               <BsPeopleFill mr="4%"/>
                                 <Text fontSize="xl" ml="4%" >
                                  Open Source Program
@@ -122,7 +171,7 @@ function Navbar(props) {
                             </Button>
                            </Link>
                            <Link to={{pathname: 'https://hashnode.com'}} target="_blank" onClick={onClose}>
-                            <Button ml="5%" mt="5%" width="100%">
+                            <Button ml="1%" mt="5%" width="100%">
                             <BsFillExclamationCircleFill mr="4%"/>
                                 <Text fontSize="xl" ml="5%" >
                                  Report a issue
@@ -130,7 +179,7 @@ function Navbar(props) {
                             </Button>
                            </Link>
                            <Link to={{pathname: 'https://hashnode.com'}} target="_blank" onClick={onClose}>
-                            <Button ml="5%" mt="5%" width="100%">
+                            <Button ml="1%" mt="5%" width="100%">
                               <BsStar mr="4%"/>
                                 <Text fontSize="xl" ml="10%" >
                                  Star on github
@@ -138,15 +187,19 @@ function Navbar(props) {
                             </Button>
                            </Link>
                            <Link to={{pathname: 'https://hashnode.com'}} target="_blank" onClick={onClose}>
-                            <Button ml="5%" mt="5%" width="100%">
+                            <Button ml="1%" mt="5%" width="100%">
                               <BsPeopleFill mr="4%"/>
                                 <Text fontSize="xl" ml="10%" >
                                  About
                                 </Text>
                             </Button>
                            </Link>
+                          <Text>
+                         meow meow  {meow && <> rejkgvlbbbldb  </>}
+                          </Text>
                            </Box>
-                        
+                      }
+                         
                             
                             
 
