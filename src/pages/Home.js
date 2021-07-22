@@ -33,7 +33,9 @@ function Home(props) {
          toast("make sure you star🌟 this project on github");
 
       }else{
-        toast.error("that's not a valid email! senapi🥺");
+        toast("that's not a valid email! senapi",{
+          icon:"🥺"
+        });
 
       }
 
@@ -117,7 +119,6 @@ function Home(props) {
 
         </Box>
         </Link>
-         
        <Flex flexDirection={check?"row":"column"}>
         <Box
          bgGradient="linear(to-r,red.100 0%, orange.100 25%, yellow.100 50%)"
