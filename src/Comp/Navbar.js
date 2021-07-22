@@ -9,6 +9,7 @@ import {BsSearch ,BsCalendarFill, BsPeopleFill, BsPerson, BsFillExclamationCircl
 import { useColorMode } from '@chakra-ui/color-mode';
 import {SignedIn, UserButton , useUser ,SignedOut} from '@clerk/clerk-react';
 import {Link} from "react-router-dom";
+import Cleak from '../assets/clerk1.png';
 
 import {
     Drawer,
@@ -113,22 +114,33 @@ function Navbar(props) {
                        <DrawerBody>
                         {meow ?
                         <>
-                        <Box>
-
+                        <Box mt="50%">
+                         <Link to="/sign-in/">
                           <Button ml="1%" mt="5%" width="100%">
 
                               
                              <Text fontSize="xl" ml="4">
-                             Login
-                             </Text>
+                             Sign In
+                               </Text>
                              </Button>
+                           </Link>
+                           <Link to="/sign-up/">
                              <Button ml="1%" mt="5%" width="100%">
 
                               
                              <Text fontSize="xl" ml="4">
-                             SignUp
+                             Sign Up
                              </Text>
                              </Button>
+                           </Link>
+                             <Box mt="50%" >
+                               <Text margin="5%">
+                                 Powered by
+                               </Text>
+                               <Link to={{pathname: 'https://clerk.dev/' }} target="_blank">
+                               <img src={Cleak} width="100%" height="50%" />
+                               </Link>
+                             </Box>
                         </Box>
                         
                         </> 
@@ -195,7 +207,6 @@ function Navbar(props) {
                             </Button>
                            </Link>
                           <Text>
-                         meow meow  {meow && <> rejkgvlbbbldb  </>}
                           </Text>
                            </Box>
                       }
