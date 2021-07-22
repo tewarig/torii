@@ -28,6 +28,7 @@ function Home(props) {
           }
 
         })
+        setEmail("");
          toast.success("email added 😉");
          toast("make sure you star🌟 this project on github");
 
@@ -207,8 +208,7 @@ function Home(props) {
              <Box mt={check?"20%":"0%"} ml={check?"15%":"0%"}> 
              <Flex direction="column">
               <Text
-              bgGradient="linear(to-l, #000 ,#333)"
-              bgClip="text"
+              
               fontSize="xl"
               mr={check ?"10%" : "0%"}
 

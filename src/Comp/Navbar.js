@@ -53,6 +53,10 @@ function Navbar(props) {
            <SignedIn>          
           <UserButton bg="tomato" />
            </SignedIn>
+           {
+               !SignedIn && <h1> heeeeeeeeee</h1>
+           }
+          
            </Box>
            </Tooltip>
 
