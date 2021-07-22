@@ -26,6 +26,8 @@ import AddProgram from './pages/AddProgram';
 import Footer from './Comp/Footer';
 import OpenProgram from './pages/OpenProgram';
 import OpenSourceEvent from './pages/OpenSourceEvent';
+import {  useColorModeValue } from "@chakra-ui/react"
+
 
 
 // Retrieve Clerk settings from the environment
@@ -33,6 +35,8 @@ const clerkFrontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
 
 function App() {
   // console.log(clerkFrontendApi);
+  const  formBackground = useColorModeValue("gray.100","gray.700");
+
   return (
     <Router>
       <ClerkProviderWithNavigate>
@@ -57,10 +61,16 @@ function App() {
 
 
           <Route path="/sign-in/(.*)?">
-            <SignIn routing="path" path="/sign-in" />
+            <>
+            <br/>
+            <SignIn routing="path" path="/sign-in"  background={formBackground}/>
+            </>
           </Route>
           <Route path="/sign-up/(.*)?">
-            <SignUp routing="path" path="/sign-up" />
+            <>
+            <br/>
+            <SignUp routing="path" path="/sign-up"  />
+            </>
           </Route>
 
 
@@ -73,7 +83,7 @@ function App() {
           <PrivateRoute path="/user/(.*)?">
             <UserProfile routing="path" path="/user" />
           </PrivateRoute>
-          <PrivateRoute path="/addRepo">
+          <PrivateRoute path="/addOrgination">
             <AddOrg></AddOrg>
 
           </PrivateRoute>

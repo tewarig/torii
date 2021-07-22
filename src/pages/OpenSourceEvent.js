@@ -1,9 +1,15 @@
 import React  from 'react';
-import {Text ,Box ,useColorModeValue} from "@chakra-ui/react";
+import {Text ,Box ,useColorModeValue, Button, Icon} from "@chakra-ui/react";
 import Callender from '../Comp/Callender';
 import EventCard from '../Comp/EventCard';
 import axios from 'axios';
 import Skeletons from '../Comp/Skeleton';
+import { FaPlus } from 'react-icons/fa';
+
+import {SignedIn,SignedOut} from "@clerk/clerk-react";
+import {Link} from 'react-router-dom';
+import toast,{Toaster} from 'react-hot-toast';
+
 
 
 function OpenSourceEvent(props) {
@@ -28,8 +34,24 @@ function OpenSourceEvent(props) {
         <Box backgroundImage="https://inchilly.sirv.com/Images/jungle-lines-2.png">
 
         
-       <Callender month={finalMonth} event="Events" changeMonth={(event)=>setFinalMonth(event.target.value)}></Callender>  
-
+       <Callender month={finalMonth} event="Events" changeMonth={(event)=>setFinalMonth(event.target.value)}></Callender> 
+       <SignedIn>
+            <Link to="/addEvent">
+                         <Button position="fixed" right="5%" bottom="5%" borderRadius="25" >
+                         <FaPlus/>
+                     </Button>
+                         </Link>
+                     </SignedIn>
+                     <SignedOut>
+             
+                     <Button position="fixed" right="5%" bottom="5%" borderRadius="25" onClick={()=>(toast('You need to sign in to add a Open Souce Event',{
+                 duration: 6000,  
+                   icon:'😞'
+               }
+               ))}>
+            <FaPlus/>
+        </Button>
+        </SignedOut> 
        {Data ?
        <>
           { Data.filter(
@@ -67,7 +89,7 @@ function OpenSourceEvent(props) {
            </>
        }
        
-
+       <Toaster/>
        
         </Box>
     );

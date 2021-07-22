@@ -6,7 +6,7 @@ import {Tooltip } from "@chakra-ui/react";
 import  { FaSun , FaMoon, FaGithub, FaUser} from "react-icons/fa";
 import { FcList, FcSearch } from "react-icons/fc";
 import {BsSearch ,BsCalendarFill, BsPeopleFill, BsPerson, BsFillExclamationCircleFill, BsStar } from "react-icons/bs";
-import { useColorMode } from '@chakra-ui/color-mode';
+import { useColorMode ,useColorModeValue } from '@chakra-ui/color-mode';
 import {SignedIn, UserButton , useUser ,SignedOut} from '@clerk/clerk-react';
 import {Link} from "react-router-dom";
 import Cleak from '../assets/clerk1.png';
@@ -31,6 +31,8 @@ function Navbar(props) {
     const [size, setSize] = React.useState("md")
     const [check] = useMediaQuery("(min-width: 1025px)")
     const [meow ,setMeow] = React.useState(false);
+    const  formBackground = useColorModeValue("white.100","gray.900");
+
     let flag = false;
     var setFlag  = () =>{
       setMeow(!meow);
@@ -47,7 +49,10 @@ function Navbar(props) {
   
     return (
         <>
-       <VStack p={5}>
+
+        <Box position="fixed" width="100%" backgroundColor="#fff" background={formBackground}  >
+
+       <VStack p={5} >
            <Flex w="100%">
             <Link to="/">
             <Text ml="8"  bgGradient="linear(to-l, cyan.300 ,#d391fa)" bgClip="text"
@@ -65,8 +70,8 @@ function Navbar(props) {
            <Text alignSelf="center"> Find a Issue</Text>
            <Text alignSelf="center"> Project of the day </Text>
            <Text alignSelf="center">
-            Find altenatives
-           </Text> */}
+           Find altenatives
+          </Text> */}
            <Tooltip label="Menu">
             <IconButton onClick={onOpen} ml={2} mr={1} icon={<FcList />} isRound="true"></IconButton>
            </Tooltip>
@@ -145,7 +150,7 @@ function Navbar(props) {
                         
                         </> 
                         :
-                           <Box>
+                        <Box>
                           {!check &&
                           <Button ml="1%" mt="5%" width="100%" onClick={toggleColorMode} >
                         {isDark ? <FaSun color="yellow"/> : <FaMoon color="#59e5f7"/> }  
@@ -220,6 +225,9 @@ function Navbar(props) {
                    </Drawer>
 
 
+              </Box>
+              <Box height="10vh">
+                          </Box>
        </>
     );
 }

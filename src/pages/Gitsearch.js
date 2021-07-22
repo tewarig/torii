@@ -1,5 +1,5 @@
 import React from 'react';
-import {  Flex , Input , Box , Text, Grid ,  useMediaQuery, Spacer }from "@chakra-ui/react"
+import {  Flex , Input , Box , Text, Grid ,  useMediaQuery, Spacer, Button }from "@chakra-ui/react"
 
 import axios from 'axios';
 
@@ -8,6 +8,9 @@ import Card from "../Comp/Card";
 import Options from '../Comp/Option';
 import Skeletons from '../Comp/Skeleton';
 import { FaPlus } from 'react-icons/fa';
+import { SignedIn, SignedOut } from '@clerk/clerk-react';
+import {Link} from 'react-router-dom';
+import toast,{Toaster} from 'react-hot-toast';
 
 function Gitsearch(props) {
     const [check] = useMediaQuery("(min-width: 1025px)")
@@ -73,6 +76,23 @@ function Gitsearch(props) {
 
             <Options  value={selectedValue} handleChange={event => setSelectedValue(event.target.value)} />
         </Flex>
+        <SignedIn>
+            <Link to="/addOrgination">
+            <Button position="fixed" right="5%" bottom="5%" borderRadius="25" >
+            <FaPlus/>
+        </Button>
+            </Link>
+        </SignedIn>
+        <SignedOut>
+
+        <Button position="fixed" right="5%" bottom="5%" borderRadius="25" onClick={()=>(toast('You need to sign in to add a Repo/Orgination',{
+    duration: 6000,  
+      icon:'😞'
+  }
+  ))}>
+            <FaPlus/>
+        </Button>
+        </SignedOut>
      {data ?  
      <>
       <Grid margin={check?"5%": "10%"}
@@ -136,6 +156,7 @@ function Gitsearch(props) {
        
             
      </Box>
+     <Toaster/>
         </>
     );
 }

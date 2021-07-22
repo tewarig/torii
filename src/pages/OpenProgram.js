@@ -3,6 +3,11 @@ import Callender from '../Comp/Callender';
 import ProgramCard from '../Comp/ProgramCard';
 import axios from 'axios';
 import Skeletons from '../Comp/Skeleton';
+import {SignedIn,SignedOut} from "@clerk/clerk-react";
+import {Link} from 'react-router-dom';
+import {Button} from "@chakra-ui/react";
+import toast,{Toaster} from 'react-hot-toast';
+import { FaPlus } from 'react-icons/fa';
 
 function OpenProgram(props) {
     const date = new Date();
@@ -30,8 +35,25 @@ function OpenProgram(props) {
                changeMonth={(event)=>setFinalMonth(event.target.value)}
 
               >
-
+ 
               </Callender>
+              <SignedIn>
+            <Link to="/addProgram">
+                         <Button position="fixed" right="5%" bottom="5%" borderRadius="25" >
+                         <FaPlus/>
+                     </Button>
+                         </Link>
+                     </SignedIn>
+                     <SignedOut>
+             
+                     <Button position="fixed" right="5%" bottom="5%" borderRadius="25" onClick={()=>(toast('You need to sign in to add a Open Souce Program',{
+                 duration: 6000,  
+                   icon:'😞'
+               }
+               ))}>
+            <FaPlus/>
+        </Button>
+        </SignedOut>
         {data ?
             <>
             {
@@ -62,7 +84,7 @@ function OpenProgram(props) {
             <Skeletons></Skeletons>
             </>
         }
-              
+             <Toaster/> 
             
         </div>
     );
