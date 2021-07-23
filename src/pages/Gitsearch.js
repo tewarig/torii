@@ -16,7 +16,7 @@ function Gitsearch(props) {
     const [check] = useMediaQuery("(min-width: 1025px)")
     const [data ,setData]  = React.useState(null);
     const [searchTerm , setSearchTeam] = React.useState("");
-    const [selectedValue, setSelectedValue] = React.useState(null);
+    const [selectedValue, setSelectedValue] = React.useState('JavaScript');
     const getata = async() =>{
         var res = await axios.get('https://toriii.herokuapp.com/org')
         setData(res.data);
