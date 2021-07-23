@@ -27,14 +27,9 @@ const Program = new mongoose.Schema({
         required:true
     },
     blog:{
-        type:Object,
-       name:{
-         type: String
-
-       },
-       link:{
-        type: String
-       }
+        type:Array,
+        default: [],
+    
     }
     
     

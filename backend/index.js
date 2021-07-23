@@ -1,23 +1,17 @@
 const express = require('express');
 const mongoose = require('mongoose');
 var cors = require('cors');
+const dot = require('dotenv').config();
 
 
 
-const url = 'mongodb+srv://gaurav:gaurav@cluster0.ztzjc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 const app = express() ;
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4003;
 
 
-// mongoose.connect(url ,{useNewUrlParser: true  ,useUnifiedTopology: true })
-// const connection = mongoose.connection
 
-// connection.on('open' , function (){
-//     console.log('connected....');
-// })
-
-mongoose.connect( url,  { useFindAndModify: false   ,useNewUrlParser: true }
+mongoose.connect( process.env.DBURL   ,  { useFindAndModify: false   ,useNewUrlParser: true }
     ).then(() => {
         console.log("Successfully connected to the database");    
     }).catch(err => {
@@ -35,6 +29,13 @@ app.use("/event",cors(),EventRoute);
 
 const ProgramRoute = require("./routes/Program");
 app.use("/program",cors(), ProgramRoute) ; 
+
+
+const DataRoute = require("./routes/Data");
+app.use("/data",cors(),DataRoute);
+
+const newsLetter = require("./routes/Email");
+app.use("/email",cors(),newsLetter);
 
 app.listen( port ,function(){
     console.log('app is listening....');
