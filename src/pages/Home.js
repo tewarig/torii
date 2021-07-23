@@ -84,7 +84,6 @@ function Home(props) {
            <img src="https://inchilly.sirv.com/Images/jungle1.png" height="100%" width="100%"   lazyload="off" />
 
         </Flex>
-        <Divider  bgGradient="linear(to-l, cyan.300 ,#d391fa)" height={1} />
         <Flex  flexDirection={check ? "column" : "column"}>
         <Link to="/OrganizationSearch">
         <Box
@@ -201,7 +200,6 @@ function Home(props) {
 
         </Box>
         </Flex>
-        <Divider  bgGradient="linear(to-l, cyan.300 ,#d391fa)" height={1} />
          <Flex flexDirection={check?"row":"column"}>
          <img src="https://inchilly.sirv.com/Images/jungle-upgrade-2%20(1).png" height="50%" width={check ?"40%":"100%"}   lazyload="off" />
           

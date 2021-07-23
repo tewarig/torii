@@ -50,7 +50,7 @@ function Navbar(props) {
     return (
         <>
 
-        <Box position="fixed" width="100%" backgroundColor="#fff" background={formBackground}  >
+        <Box position="fixed" width="100%" backgroundColor="#fff" background={formBackground} zIndex="1000" >
 
        <VStack p={5} >
            <Flex w="100%">
@@ -58,6 +58,7 @@ function Navbar(props) {
             <Text ml="8"  bgGradient="linear(to-l, cyan.300 ,#d391fa)" bgClip="text"
               fontSize="3xl"
               fontWeight="extrabold"
+              z-index={5}
               >
                 Toriii
             </Text>
@@ -226,7 +227,7 @@ function Navbar(props) {
 
 
               </Box>
-              <Box height="10vh">
+              <Box height="15vh">
                           </Box>
        </>
     );

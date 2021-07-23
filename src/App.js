@@ -16,6 +16,9 @@ import {
   Switch, 
   useHistory 
 } from 'react-router-dom';
+
+
+
 import Navbar from './Comp/Navbar';
 import Home from './pages/Home';
 import Error from "./pages/Error";
@@ -27,6 +30,9 @@ import Footer from './Comp/Footer';
 import OpenProgram from './pages/OpenProgram';
 import OpenSourceEvent from './pages/OpenSourceEvent';
 import {  useColorModeValue } from "@chakra-ui/react"
+import Sign from './pages/Sign';
+import SignU from './pages/SignUp';
+
 
 
 
@@ -61,16 +67,10 @@ function App() {
 
 
           <Route path="/sign-in/(.*)?">
-            <>
-            <br/>
-            <SignIn routing="path" path="/sign-in"  background={formBackground}/>
-            </>
+         <Sign></Sign>
           </Route>
           <Route path="/sign-up/(.*)?">
-            <>
-            <br/>
-            <SignUp routing="path" path="/sign-up"  />
-            </>
+         <SignU></SignU>
           </Route>
 
 
