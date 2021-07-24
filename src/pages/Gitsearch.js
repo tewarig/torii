@@ -11,6 +11,7 @@ import { FaPlus } from 'react-icons/fa';
 import { SignedIn, SignedOut } from '@clerk/clerk-react';
 import {Link} from 'react-router-dom';
 import toast,{Toaster} from 'react-hot-toast';
+import ScrollToTop from '../Comp/ScrollToTop';
 
 function Gitsearch(props) {
     const [check] = useMediaQuery("(min-width: 1025px)")

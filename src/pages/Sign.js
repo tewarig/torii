@@ -2,6 +2,7 @@ import React from 'react';
 import {SignIn} from '@clerk/clerk-react';
 import {colorMode ,toggleColorMode,useColorMode} from '@chakra-ui/react';
 import './darkMode.css';
+import ScrollToTop from '../Comp/ScrollToTop';
 
 
 function Sign(props) {
