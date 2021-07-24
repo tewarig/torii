@@ -61,39 +61,7 @@ function Home(props) {
 
         </Flex>
         <Flex  flexDirection={check ? "column" : "column"}>
-        <Link to="/OrganizationSearch">
-        <Box
-          w={check ? "90%" : "90%"}
-          margin="5%"
-          bgGradient="linear(to-r,  #008793, #00bf72, #a8eb12)"
-          borderRadius={25}
-          flexDirection="row"
-          > 
-
-          <Flex align="center"  flexDirection={check ?  "row"  : "column"}  background="" >
-             <div alignSelf="center">
-            <Text
-                         align="center"
-                         ml={check ? "1" : "0"}
-                         mt={check ? "0" : "5%"}
-                         bgGradient="linear(to-l, #000 ,#333)"
-                         bgClip="text"
-                           fontSize={check?"6xl":"xl"}
-                           fontWeight="extrabold"
-    
-                >
-                     Search  and find  a origination you would love to contriubute 
-                </Text>
-              
-               
-                </div>
-                <Spacer></Spacer>
-               <img src="https://inchilly.sirv.com/Images/jungle-searching-1%20(1).png" height="70%" width="80%"   lazyload="off" />
-    
-            </Flex>
-
-        </Box>
-        </Link>
+        
        <Flex flexDirection={check?"row":"column"}>
         <Box
          bgGradient="linear(to-r,red.100 0%, orange.100 25%, yellow.100 50%)"
@@ -176,6 +144,39 @@ function Home(props) {
 
         </Box>
         </Flex>
+        <Link to="/OrganizationSearch">
+        <Box
+          w={check ? "90%" : "90%"}
+          margin="5%"
+          bgGradient="linear(to-r,  #008793, #00bf72, #a8eb12)"
+          borderRadius={25}
+          flexDirection="row"
+          > 
+
+          <Flex align="center"  flexDirection={check ?  "row"  : "column"}  background="" >
+             <div alignSelf="center">
+            <Text
+                         align="center"
+                         ml={check ? "1" : "0"}
+                         mt={check ? "0" : "5%"}
+                         bgGradient="linear(to-l, #000 ,#333)"
+                         bgClip="text"
+                           fontSize={check?"6xl":"xl"}
+                           fontWeight="extrabold"
+    
+                >
+                     Search  and find  a origination you would love to contriubute 
+                </Text>
+              
+               
+                </div>
+                <Spacer></Spacer>
+               <img src="https://inchilly.sirv.com/Images/jungle-searching-1%20(1).png" height="70%" width="80%"   lazyload="off" />
+    
+            </Flex>
+
+        </Box>
+        </Link>
         <NewsLetter></NewsLetter>
         </Flex>
         <Toaster/>
