@@ -27,7 +27,7 @@ function EventCard({Id ,ImageUrl,TextTitle,TextDes,Linki,Date,Month}) {
                     >
                     {TextTitle}       
                    </Text>
-                   <Box ml={check? "0%":"25%"}>
+                   <Box ml={check? "0%":"0%"}>
                  
                       <Button   >
                     {
