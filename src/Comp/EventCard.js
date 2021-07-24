@@ -9,7 +9,7 @@ function EventCard({Id ,ImageUrl,TextTitle,TextDes,Linki,Date,Month}) {
 
 
     return (
-       <Box  id={Id}mt="1%" ml="8%"  width="80%" borderRadius={25}  padding="2%" display="flex" flexDirection={check ?   "row" : "column"} backgroundColor ="#fff" background={formBackground} >
+       <Box  id={Id}mt="1%" ml={check ?"8%" : "5%"}  width={check ? "80%" : "90%"} borderRadius={25}  padding="2%" display="flex" flexDirection={check ?   "row" : "column"} backgroundColor ="#fff" background={formBackground} >
            <Image  src={ImageUrl}
                 width={check ? "10%" : "90%"} 
                 ml={check? "0%":"6%" }
@@ -22,7 +22,7 @@ function EventCard({Id ,ImageUrl,TextTitle,TextDes,Linki,Date,Month}) {
                     bgGradient="linear(to-l, cyan.300 ,#d391fa)" bgClip="text"
                     fontSize="3xl"
                     fontWeight="extrabold"
-                    ml={check ? "0%":"20%"}
+                    ml={check ? "0%":"0%"}
                     
                     >
                     {TextTitle}       
@@ -37,7 +37,7 @@ function EventCard({Id ,ImageUrl,TextTitle,TextDes,Linki,Date,Month}) {
                    
                   </Button>
               
-                  <Button >
+                  <Button ml={check?"0%":"2%"} >
                     {
                       Month
                     }
