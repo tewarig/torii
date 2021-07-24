@@ -9,6 +9,8 @@ import { FaPlus } from 'react-icons/fa';
 import {SignedIn,SignedOut} from "@clerk/clerk-react";
 import {Link} from 'react-router-dom';
 import toast,{Toaster} from 'react-hot-toast';
+import NewsLetter from '../Comp/NewsLetter';
+
 
 
 
@@ -16,6 +18,7 @@ function OpenSourceEvent(props) {
     const  formBackground = useColorModeValue("gray.100","gray.700");
     const date = new Date();
     var n = date.getMonth();
+    var d = date.getDate();
     var month = ["Jan","Feb","March","April","May","June","July","Aug","Sep","Oct","Nov","December"]
 
     var [finalMonth,setFinalMonth] = React.useState(month[n]);
@@ -25,11 +28,14 @@ function OpenSourceEvent(props) {
     const fetchData = async() => {
         const response = await axios.get('https://toriii.herokuapp.com/event');
         setData(response.data);
+        if(d>=24){
+            toast('Looks like you missed a lot of events this month.. try checking out for next month',{icon:'😔'})
+        }
         
     }
     React.useEffect(fetchData,[]);
-    var temp = [];
- 
+
+    
     return (
         <Box backgroundImage="https://inchilly.sirv.com/Images/jungle-lines-2.png">
 
@@ -91,6 +97,7 @@ function OpenSourceEvent(props) {
        }
        
        <Toaster/>
+       <NewsLetter></NewsLetter>
        
         </Box>
     );
