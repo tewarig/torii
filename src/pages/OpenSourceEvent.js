@@ -10,6 +10,7 @@ import {SignedIn,SignedOut} from "@clerk/clerk-react";
 import {Link} from 'react-router-dom';
 import toast,{Toaster} from 'react-hot-toast';
 import NewsLetter from '../Comp/NewsLetter';
+import ScrollToTop from '../Comp/ScrollToTop';
 
 
 
@@ -37,6 +38,8 @@ function OpenSourceEvent(props) {
 
     
     return (
+        <>
+        <ScrollToTop></ScrollToTop>
         <Box backgroundImage="https://inchilly.sirv.com/Images/jungle-lines-2.png">
 
         
@@ -50,7 +53,7 @@ function OpenSourceEvent(props) {
                      </SignedIn>
                      <SignedOut>
              
-                     <Button position="fixed" right="5%" bottom="5%" borderRadius="25" onClick={()=>(toast('You need to sign in to add a Open Souce Event',{
+                     <Button position="fixed" right="5%" bottom="5%" borderRadius="25" onClick={()=>(toast('You need to sign in to add an  Event',{
                  duration: 6000,  
                    icon:'😞'
                }
@@ -100,6 +103,7 @@ function OpenSourceEvent(props) {
        <NewsLetter></NewsLetter>
        
         </Box>
+        </>
     );
 }
 

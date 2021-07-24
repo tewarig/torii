@@ -30,6 +30,7 @@ function Sign(props) {
 
     return (
         <>
+        <ScrollToTop></ScrollToTop>
         <br/>
         <SignIn routing="path" path="/sign-in"  />
         </>

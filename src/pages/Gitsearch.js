@@ -25,6 +25,7 @@ function Gitsearch(props) {
 
     return (
         <>
+        <ScrollToTop></ScrollToTop>
         <Box >
         <Flex align="center"  flexDirection={check ?  "row"  : "column"}  background="" >
         <div alignSelf="center"  position="absolute" >

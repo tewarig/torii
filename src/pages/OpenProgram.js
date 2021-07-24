@@ -29,6 +29,7 @@ function OpenProgram(props) {
 
     return (
         <div>
+            <ScrollToTop></ScrollToTop>
               <Callender
                event="Programs"
                month={finalMonth}

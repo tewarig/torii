@@ -102,7 +102,7 @@ function Home(props) {
           w={check ? "40%" : "90%"}
           margin="5%"
           >
-       <Link to="/OpenProgram">
+       <Link to="/OpenSourceEvents">
                       <Flex align="center"  flexDirection={check ?  "row"  : "column-reverse"}  background="" >
 
              <div alignSelf="center">
@@ -140,7 +140,7 @@ function Home(props) {
           w={check ? "40%" : "90%"}
           margin="5%"
           >
-           <Link to="/OpenSourceEvents">
+           <Link to="/OpenProgram">
 
 
             
