@@ -1,9 +1,9 @@
-import { Box , Text  } from '@chakra-ui/layout';
-import { Image , Button ,useColorModeValue ,Badge ,useMediaQuery} from "@chakra-ui/react";
+import { Box , Spacer, Text  } from '@chakra-ui/layout';
+import { Image , Button ,useColorModeValue ,Badge ,useMediaQuery ,Flex} from "@chakra-ui/react";
 import {Link} from "react-router-dom";
 import React from 'react';
 
-function EventCard({Id ,ImageUrl,TextTitle,TextDes,Linki}) {
+function EventCard({Id ,ImageUrl,TextTitle,TextDes,Linki,Date,Month}) {
     const  formBackground = useColorModeValue("gray.100","gray.700");
     const [check] = useMediaQuery("(min-width: 1025px)")
 
@@ -17,14 +17,33 @@ function EventCard({Id ,ImageUrl,TextTitle,TextDes,Linki}) {
                  borderRadius="25px"
             />
                   <Box width="100%" ml="5%" >
+
                   <Text 
                     bgGradient="linear(to-l, cyan.300 ,#d391fa)" bgClip="text"
-                  fontSize="3xl"
-                  fontWeight="extrabold"
-                   
-                  >
+                    fontSize="3xl"
+                    fontWeight="extrabold"
+                    ml={check ? "0%":"20%"}
+                    
+                    >
                     {TextTitle}       
                    </Text>
+                   <Box ml={check? "0%":"25%"}>
+                 
+                      <Button   >
+                    {
+                      Date
+                    }
+
+                   
+                  </Button>
+              
+                  <Button >
+                    {
+                      Month
+                    }
+
+                  </Button>
+                    </Box>
 
                   <Text>
                   {
@@ -32,10 +51,13 @@ function EventCard({Id ,ImageUrl,TextTitle,TextDes,Linki}) {
                   }
 
                   </Text>
+                  <Box>
+
+                  </Box>
                   <Box display="flex"  display="flex"    flexDirection="row" >  
 
 
-
+             
                       <Link 
                        to={ {pathname : Linki}} 
                        target="_blank" >
