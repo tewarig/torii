@@ -20,8 +20,9 @@ function OpenProgram(props) {
     const getData = async() => {
         const response = await axios.get('https://toriii.herokuapp.com/Program');
         const meow  = response.data;
-        console.log(meow);
+        // console.log(meow);
         setData(meow);
+        toast("Remember to checkout other open source programs in upcoming months" ,{icon:"👍"})
     }
         React.useEffect(getData,[]);
 

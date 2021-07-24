@@ -29,7 +29,7 @@ function ProgramCard({Id ,ImageUrl,TextTitle,TextDes,Date,Month,Youtube,Linki,Bl
                 width={check ? "10%" : "90%"} 
                 ml={check? "0%":"6%" }
                 height="50%"
-                 borderRadius="25px"
+                //  borderRadius="25px"
             />
                   <Box width="100%" ml="5%" >
                   <Text 
@@ -71,7 +71,6 @@ function ProgramCard({Id ,ImageUrl,TextTitle,TextDes,Date,Month,Youtube,Linki,Bl
                               ml={"36%"}
                                width="25%"                                
                                height="70%"
-                                borderRadius="25px"
                            />
                            <Text
                            margin="1%"

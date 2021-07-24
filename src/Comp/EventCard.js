@@ -28,21 +28,24 @@ function EventCard({Id ,ImageUrl,TextTitle,TextDes,Linki,Date,Month}) {
                     {TextTitle}       
                    </Text>
                    <Box ml={check? "0%":"0%"}>
-                 
-                      <Button   >
+                   <Flex>
+
+                      <Text>
+
                     {
                       Date
                     }
+                    </Text>
 
-                   
-                  </Button>
               
-                  <Button ml={check?"0%":"2%"} >
+                   <Text ml="1%">
+
                     {
                       Month
                     }
+                    </Text>
+                    </Flex>
 
-                  </Button>
                     </Box>
 
                   <Text>
