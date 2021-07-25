@@ -78,7 +78,7 @@ function Navbar(props) {
            </Tooltip>
            {check &&
            <Tooltip label="Star! on github" >
-             <Link to={{pathname:'https://github.com/tewarig/torii/'}} target="_blank">
+             <Link to={{pathname:'https://github.com/tewarig/torii/'}} targe="_blank">
 
  
            <IconButton ml={2} mr={1} icon={<FaGithub/>}  isRound="true"></IconButton>
@@ -207,7 +207,7 @@ function Navbar(props) {
                                 </Text>
                             </Button>
                            </Link>
-                           <Link to={{pathname: 'https://hashnode.com/@tewarig'}} target="_blank" onClick={onClose}>
+                           <Link to={{pathname: 'https://blog.gauravtewari.xyz/introducing-torii-making-participation-to-open-source-easy-for-everyone'}} target="_blank" onClick={onClose}>
                             <Button ml="1%" mt="5%" width="100%">
                               <BsPeopleFill mr="4%"/>
                                 <Text fontSize="xl" ml="10%" >
