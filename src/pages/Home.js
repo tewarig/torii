@@ -16,7 +16,7 @@ import NewsLetter from '../Comp/NewsLetter';
 
 function Home(props) {
   const [check] = useMediaQuery("(min-width: 1025px)")
-
+ 
     return (
         <>
         <Flex align="center"  flexDirection={check ?  "row"  : "column"}  background="" >

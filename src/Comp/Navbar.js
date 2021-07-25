@@ -122,7 +122,7 @@ function Navbar(props) {
                         <>
                         <Box mt="50%">
                          <Link to="/sign-in/">
-                          <Button ml="1%" mt="5%" width="100%">
+                          <Button ml="1%" mt="5%" width="100%" onClick={onClose} >
 
                               
                              <Text fontSize="xl" ml="4">
@@ -131,7 +131,7 @@ function Navbar(props) {
                              </Button>
                            </Link>
                            <Link to="/sign-up/">
-                             <Button ml="1%" mt="5%" width="100%">
+                             <Button ml="1%" mt="5%" width="100%" onClick={onClose} >
 
                               
                              <Text fontSize="xl" ml="4">
