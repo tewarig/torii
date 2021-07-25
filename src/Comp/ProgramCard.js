@@ -92,14 +92,14 @@ function ProgramCard({Id ,ImageUrl,TextTitle,TextDes,Date,Month,Youtube,Linki,Bl
       
                         </Text>
                         <Box>
-                            <Button margin="4%" colorScheme="pink">
+                            <Badge margin="4%" colorScheme="pink" isActive="false" padding="1%" borderRadius="5px"> 
 
                             <Text>
                             📜 Blog
                             </Text>
  
                            
-                            </Button> 
+                            </Badge> 
                             {
                               Blog.map(
                                 x=>(
@@ -127,10 +127,10 @@ function ProgramCard({Id ,ImageUrl,TextTitle,TextDes,Date,Month,Youtube,Linki,Bl
                             </Text>
                         </Box>
                         <Box>
-                            <Button margin="4%" colorScheme="pink">
+                        <Badge margin="4%" colorScheme="pink" isActive="false" padding="1%" borderRadius="5px"> 
 
                             <Text> 🎥 Youtube Video</Text>
-                            </Button>
+                         </Badge>
                             {
                                 Youtube.map(
                                     x =>(
@@ -153,11 +153,11 @@ function ProgramCard({Id ,ImageUrl,TextTitle,TextDes,Date,Month,Youtube,Linki,Bl
                             </Text>
                         </Box>
                         <Box>
-                            <Button margin="5%" colorScheme="pink">
+                        <Badge margin="4%" colorScheme="pink" isActive="false" padding="1%" borderRadius="5px"> 
 
-                            <Text> 🎥 Offical Resources</Text>
+                            <Text>  Offical Resources</Text>
 
-                            </Button>
+                            </Badge>
                             <Text>
                                 <Link to={{pathname: Linki}} target="_blank" >
                                     <Button rgin="3%" colorScheme="green" margin="5%">
