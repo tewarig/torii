@@ -111,15 +111,8 @@ function Gitsearch(props) {
                   }else if(value.name.toLowerCase().includes(searchTerm.toLowerCase())){
                       return value;
 
-                  }else{
-
                   }
 
-                  if(selectedValue==""){
-                      return value;
-                  }else if((value.tags.indexOf(selectedValue)) !== -1){
-                      return value;
-                  }
               }
           ).filter(
             value =>{
