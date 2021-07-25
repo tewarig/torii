@@ -26,7 +26,7 @@
 
 </p>
 
-<p align="center"><iframe width="640" height="313" src="https://www.loom.com/embed/ae32c6f65ce34bac93fddd0f135fc23b" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></p>
+
 
 <p align="center">
     <a href="https://torii.vercel.app/" target="blank">View Demo</a>
