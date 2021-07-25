@@ -50,7 +50,7 @@ Contributing to open souce can be tuff especially to new contributors. it's hard
 <img src="public/assets/torii.png" />
 </a>
 
-Try the App: [Torii](https://toriii..vercel.app/)
+Try the App: [Torii](https://toriii.vercel.app/)
 
 
 
@@ -153,5 +153,6 @@ If you found the app helpful, consider supporting me with a coffee.
 <h3 align="center">
 We need a ⭐️ from you
 </h3>
+
 
 
