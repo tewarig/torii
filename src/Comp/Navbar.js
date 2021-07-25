@@ -78,8 +78,11 @@ function Navbar(props) {
            </Tooltip>
            {check &&
            <Tooltip label="Star! on github" >
+             <Link to={{pathname:'https://github.com/tewarig/torii/'}} target="_blank">
 
+ 
            <IconButton ml={2} mr={1} icon={<FaGithub/>}  isRound="true"></IconButton>
+           </Link>
            </Tooltip>
            }
            { check &&
