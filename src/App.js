@@ -8,40 +8,35 @@ import {
   UserButton,
   UserProfile,
   useUser,
-} from '@clerk/clerk-react';
-import { 
-  BrowserRouter as Router, 
-  Link, 
-  Route, 
-  Switch, 
-  useHistory 
-} from 'react-router-dom';
+} from "@clerk/clerk-react";
+import {
+  BrowserRouter as Router,
+  Link,
+  Route,
+  Switch,
+  useHistory,
+} from "react-router-dom";
 
-
-
-import Navbar from './Comp/Navbar';
-import Home from './pages/Home';
+import Navbar from "./Comp/Navbar";
+import Home from "./pages/Home";
 import Error from "./pages/Error";
-import Gitsearch from './pages/Gitsearch';
-import AddOrg from './pages/AddOrg';
-import AddEvent from './pages/AddEvent';
-import AddProgram from './pages/AddProgram';
-import Footer from './Comp/Footer';
-import OpenProgram from './pages/OpenProgram';
-import OpenSourceEvent from './pages/OpenSourceEvent';
-import {  useColorModeValue } from "@chakra-ui/react"
-import Sign from './pages/Sign';
-import SignU from './pages/SignUp';
-
-
-
+import Gitsearch from "./pages/Gitsearch";
+import AddOrg from "./pages/AddOrg";
+import AddEvent from "./pages/AddEvent";
+import AddProgram from "./pages/AddProgram";
+import Footer from "./Comp/Footer";
+import OpenProgram from "./pages/OpenProgram";
+import OpenSourceEvent from "./pages/OpenSourceEvent";
+import { useColorModeValue } from "@chakra-ui/react";
+import Sign from "./pages/Sign";
+import SignU from "./pages/SignUp";
 
 // Retrieve Clerk settings from the environment
 const clerkFrontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
 
 function App() {
   // console.log(clerkFrontendApi);
-  const  formBackground = useColorModeValue("gray.100","gray.700");
+  const formBackground = useColorModeValue("gray.100", "gray.700");
 
   return (
     <Router>
@@ -53,26 +48,21 @@ function App() {
             <Home></Home>
           </Route>
           <Route path="/OrganizationSearch" exact>
-            <Gitsearch>
-              
-            </Gitsearch>
+            <Gitsearch></Gitsearch>
           </Route>
           <Route path="/OpenProgram" exact>
             <OpenProgram></OpenProgram>
-
           </Route>
           <Route path="/OpenSourceEvents">
             <OpenSourceEvent></OpenSourceEvent>
           </Route>
 
-
           <Route path="/sign-in/(.*)?">
-         <Sign></Sign>
+            <Sign></Sign>
           </Route>
           <Route path="/sign-up/(.*)?">
-         <SignU></SignU>
+            <SignU></SignU>
           </Route>
-
 
           {/* Private routes, accesible only if a user is signed in */}
           <PrivateRoute path="/private">
@@ -85,7 +75,6 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/addOrgination">
             <AddOrg></AddOrg>
-
           </PrivateRoute>
           <PrivateRoute path="/addEvent">
             <AddEvent></AddEvent>
@@ -95,13 +84,12 @@ function App() {
           </PrivateRoute>
 
           {/* Catch-all route will render if no other route renders */}
-          <Route path="/" exact >
-           <Home></Home>
+          <Route path="/" exact>
+            <Home></Home>
           </Route>
           <Route path="/">
             <Error></Error>
           </Route>
-
         </Switch>
         <Footer></Footer>
       </ClerkProviderWithNavigate>
@@ -145,10 +133,7 @@ function PrivateRoute(props) {
 function ClerkProviderWithNavigate({ children }) {
   const { push } = useHistory();
   return (
-    <ClerkProvider
-      frontendApi={clerkFrontendApi}
-      navigate={(to) => push(to)}
-    >
+    <ClerkProvider frontendApi={clerkFrontendApi} navigate={(to) => push(to)}>
       {children}
     </ClerkProvider>
   );
