@@ -87,7 +87,7 @@ function Home(props) {
                            fontWeight="extrabold"
     
                 >
-                  Find all the Open Source events happing this month and Attend what you like
+                  Find all the Open Source events happening this month and Attend what you like
                 </Text>
                 <div mb="5%"> 
 
