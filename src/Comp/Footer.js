@@ -9,7 +9,12 @@ function Footer(props) {
     <Box mt={5}>
       <Divider bgGradient="linear(to-l, cyan.300 ,#d391fa)" height={1} />
       <Box height="10" align="center">
-        <Text margin="5" p={2} fontSize={check ? "3xl" : "xl"}>
+        <Text
+          margin="5"
+          p={2}
+          fontSize={check ? "xl" : "xl"}
+          fontSize={isLargerThan1880 ? "2xl" : "lg"}
+        >
           Fuled by ☕ & ❤️
         </Text>
       </Box>

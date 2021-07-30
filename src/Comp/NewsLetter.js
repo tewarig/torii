@@ -42,37 +42,60 @@ function NewsLetter(props) {
             style={{ margin: "0 auto" }}
           />
         )}
-        {check && (
+
+        {check && !isLargerThan1880 && (
           <img
             src="https://inchilly.sirv.com/Images/jungle-upgrade-2%20(1).png"
             width="40%"
             lazyload="off"
-            style={{ margin: "0 auto" }}
+            style={{ margin: "0 auto", paddingLeft: "2%" }}
+          />
+        )}
+        {isLargerThan1880 && (
+          <img
+            src="https://inchilly.sirv.com/Images/jungle-upgrade-2%20(1).png"
+            width="35%"
+            lazyload="off"
+            style={{ margin: "0 auto", paddingLeft: "5%" }}
           />
         )}
 
         <Box
-          a
+          mr={isLargerThan1880 ? "15%" : "0%"}
           pl={check == false ? "10" : "center"}
           pt={check == false ? "10" : "center"}
           pb={check == false ? "10" : "center"}
         >
-          <Box mt={check ? "20%" : "0%"} ml={check ? "15%" : "0%"}>
+          <Box
+            mt={check ? "20%" : "0%"}
+            ml={check ? "15%" : "0%"}
+            mr={check ? "10%" : "0%"}
+          >
             <Flex direction="column">
-              <Text fontSize={check ? "3xl" : "xl"} ml={check ? "10%" : "5%"}>
+              <Text
+                fontSize={check ? "xl" : "xl"}
+                fontSize={isLargerThan1880 ? "2xl" : "lg"}
+              >
                 {" "}
                 Subscribe to our news letter and get a list of events and
                 programs happening each month delivered to you
               </Text>
               <Text
                 mt="5%"
-                fontSize={check ? "3xl" : "xl"}
+                fontSize={check ? "xl" : "lg"}
+                fontSize={isLargerThan1880 ? "2xl" : "lg"}
                 ml={check ? "10%" : "5%"}
+                ml={isLargerThan1880 ? "0" : "0"}
               >
                 Spam...? we don't do that here.
               </Text>
             </Flex>
-            <Flex flexDirection="row" mt="5%" ml={check ? "10%" : "5%"}>
+            <Flex
+              flexDirection="row"
+              mt="5%"
+              ml={check ? "10%" : "5%"}
+              ml={isLargerThan1880 ? "0" : "0"}
+            >
               <h1></h1>
               <Input
                 placeholder="email"
