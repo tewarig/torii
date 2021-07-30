@@ -128,7 +128,7 @@ function Home(props) {
                            fontWeight="extrabold"
     
                 >
-                 Get a detailed list of all open source program happing out there
+                 Get a detailed list of all open source program happening out there
                 </Text>
                 <div mb="5%"> 
 
@@ -165,7 +165,7 @@ function Home(props) {
                            fontWeight="extrabold"
     
                 >
-                     Search  and find  a origination you would love to contriubute 
+                     Search and find an organization you would love to contriubute to
                 </Text>
               
                
