@@ -32,6 +32,8 @@ import OpenSourceEvent from './pages/OpenSourceEvent';
 import {  useColorModeValue } from "@chakra-ui/react"
 import Sign from './pages/Sign';
 import SignU from './pages/SignUp';
+import NewsLetter from  '../src/Comp/NewsLetter';
+
 
 
 
@@ -72,7 +74,9 @@ function App() {
           <Route path="/sign-up/(.*)?">
          <SignU></SignU>
           </Route>
-
+          <Route path="/newsletter">
+          <NewsLetter></NewsLetter>
+          </Route>
 
           {/* Private routes, accesible only if a user is signed in */}
           <PrivateRoute path="/private">
